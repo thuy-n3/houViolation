@@ -4,7 +4,8 @@ if (!global.PROJECT_NAME) { //« set by npm run init-dev »
 	throw new Error('no project name set. did you forget to run "npm run init-dev"?')
 }
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
-
+const mongoose = require('mongoose')
+let CSV_import_fn = require('./db/csv.js') //being inported in from csv.js 
 
 
 const bodyParser = require('body-parser');
@@ -46,7 +47,7 @@ app.set('view engine', 'html');
 // =========
 // DATABASE
 // =========
-connectToDB(global.PROJECT_NAME)
+connectToDB(global.PROJECT_NAME)	//connecting to DB
 
 // =========
 // APPLICATION MIDDLEWARE 
@@ -75,3 +76,13 @@ app.use(appMiddleWare.errorHandler);
 app.listen(PORT,function() {
   console.log('\n\n===== listening for requests on port ' + PORT + ' =====\n\n')
 })
+
+
+//below mongoose is listening to a connection (npm run go)
+//when mongoose is connected to DB - it will run the CSV_import_fn in csv.js
+mongoose.connection.on('connected', function(){ 
+	console.log("MONGOOSE CONNECTTED!!!")
+	console.log(mongoose.connection.name)
+	CSV_import_fn()
+})
+

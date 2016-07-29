@@ -2,30 +2,33 @@ const mongoose = require('mongoose')
 const csv = require('fast-csv')
 
 
-module.exports.importFile = function(filePath, fileHeaders, modelName){
+module.exports.importCSV = function(filePath, fileHeaders, modelName){
 	csv
 		.fromPath(filePath, {headers: fileHeaders})
 		.on('data', function(data) {
-
 			var Obj = mongoose.model(modelName)
 
 			var dataObj = new Obj(); 
 
-			dataObj.keys(data).forEach(function(key) {
+			Object.keys(data).forEach(function(key) {
 				var val = data[key];
 
-				if(val !== '')
+				if(val !== '') {
 					dataObj.set(key, val);
+				}
+				console.log(key,val)
 			})
 
 			dataObj.save(function (err){
-
-				if(err)
-					console.log(err);
+				console.log('SAVED! \n ---------------')
+				console.log(dataObj.toObject())
+				if(err) {
+					console.log("error saving data", err);
+				}
 			})
 		})
-		.on('end', function() {
-			console.log("done");
+		.on('end', function(results) {
+			console.log("done", results);
 		});
 }
 
