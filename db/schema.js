@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const createModel = mongoose.model.bind(mongoose);
 const Schema = mongoose.Schema;
 
+
 // ----------------------
 // USERS
 // ----------------------
@@ -17,6 +18,23 @@ const usersSchema = new Schema({
 
 })
 
+
+const csvSchema = new Schema ({
+	InspectionID: {type: String},
+	FacilityHashID: {type: String}, 
+	InspectionDate: {type: String},
+	InspectionStatus: {type: String},
+	FacilityName: {type: String},
+	FacilityFullStreetAddress: {type: String},
+	FacilityZip: {type: Number}, 
+	EstablishmentType: {type: String},
+	Cuisine: {type: String},
+	FacilityRiskScore: {type: Number},
+	FacilityRiskProfile: {type: String}
+})
+
+
 module.exports = {
-  User: createModel('User', usersSchema)
+  User: createModel('User', usersSchema),
+  Coh_HV: createModel('Coh_HV', csvSchema)  
 }
