@@ -5,7 +5,28 @@ import init from './init'
 
 
 const app = function() {
-  document.querySelector('.container').innerHTML = "<h1>Woah!</h1>"
+
+	const appRouter = Backbone.Router.extend({
+		routes: {
+			"home" : "showHome",
+			"*catchAll" : "redirect"
+		}
+
+		redirect: function(){
+			location.hash = "home"
+		}, 
+
+		showHome: function(){
+			ReactDOM.render(<HomeView />, document.querySelector('.container'))
+		},
+
+		initialize: function(){
+			Backbone.history.start()
+		}
+
+	})
+
+ new appRouter()
 }
 
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..

@@ -42,5 +42,12 @@ let User = require('../db/schema.js').User
 
     // Routes for a Model(resource) should have this structure
 
+    apiRouter.get('/home', function(request,response){
+      console.log("getting records home")
+      coh_HV.find({}, function(error,records){
+        response.send(records)
+      })
+    })
+
 
 module.exports = apiRouter
