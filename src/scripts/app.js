@@ -4,13 +4,16 @@ import Backbone from 'backbone'
 import init from './init'
 
 
+//4. Build client-side app routes 
+
 const app = function() {
 
 	const appRouter = Backbone.Router.extend({
 		routes: {
 			"home" : "showHome",
+			"/viewAll" : "showAll",
 			"*catchAll" : "redirect"
-		}
+		},
 
 		redirect: function(){
 			location.hash = "home"
@@ -18,6 +21,10 @@ const app = function() {
 
 		showHome: function(){
 			ReactDOM.render(<HomeView />, document.querySelector('.container'))
+		},
+
+		showAll: function(){
+			ReactDOM.render(<ViewAll />, document.querySelector('.container'))
 		},
 
 		initialize: function(){

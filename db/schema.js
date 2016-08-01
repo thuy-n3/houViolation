@@ -18,7 +18,7 @@ const usersSchema = new Schema({
 
 })
 
-
+//1.establish schema for DB 
 const csvSchema = new Schema ({
 	InspectionID: {type: String},
 	FacilityHashID: {type: String}, 
@@ -33,7 +33,7 @@ const csvSchema = new Schema ({
 	FacilityRiskProfile: {type: String}
 })
 
-
+//2. export schema 
 module.exports = {
   User: createModel('User', usersSchema),
   Coh_HV: createModel('Coh_HV', csvSchema)  

@@ -2,6 +2,19 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 import {app_name} from '../app'
 
+//5. Establish Collection and Models and exports them 
+
+const CohCollection = Backbone.Collection.extend ({
+	model: reportModel, 
+	url: '/viewAll'
+})
+
+const ReportModel = Backbone.Model.extend ({
+
+})
+
+
+
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 const UserAuthModel = Backbone.Model.extend({
 	urlRoot: '/api/users',
@@ -66,4 +79,4 @@ const User = UserAuthModel.extend({
 
 
 
-export { User }
+export { User, CohCollection, ReportModel }

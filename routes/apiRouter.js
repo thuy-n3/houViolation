@@ -40,14 +40,55 @@ let User = require('../db/schema.js').User
       })  
     })
 
+   
     // Routes for a Model(resource) should have this structure
 
-    apiRouter.get('/home', function(request,response){
-      console.log("getting records home")
-      coh_HV.find({}, function(error,records){
-        response.send(records)
+//3. establish server-side api router: query for 'home' from server
+
+//api router list :
+//  /home (current)
+//  /viewAll
+//  /currentMonth
+//  /year
+//  /hallofshame
+
+
+    //home - at the moment: get all records 
+    //  apiRouter.get('/home', function(request,response){
+    //   console.log("getting records home")
+    //   Coh_HV.find({}, function(error,records){
+    //     response.send(records)
+    //   })
+    // })
+
+    //get all 
+    apiRouter.get('/viewAll', function(request, response){
+      console.log('getting all records')
+      Coh_HV.find(request.query, function(error, records){
+        if(error){
+          response.send(error)
+        }
+        else{
+          response.json(records)
+        }
       })
     })
 
 
 module.exports = apiRouter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

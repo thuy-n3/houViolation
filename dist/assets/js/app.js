@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/withluv_serendipity/Desktop/TIY2/houViol/src/scripts/app.js: Unexpected token (15:2) while parsing file: /Users/withluv_serendipity/Desktop/TIY2/houViol/src/scripts/app.js");
+console.error("SyntaxError: /Users/withluv_serendipity/Desktop/TIY2/houViol/src/scripts/app.js: Unexpected token (18:2) while parsing file: /Users/withluv_serendipity/Desktop/TIY2/houViol/src/scripts/app.js");
