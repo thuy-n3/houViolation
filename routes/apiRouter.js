@@ -1,8 +1,9 @@
 let Router = require('express').Router;
 const apiRouter = Router()
 let helpers = require('../config/helpers.js')
-
 let User = require('../db/schema.js').User
+let Coh_HV = require('../db/schema.js').Coh_HV
+
 
   
   apiRouter
@@ -45,38 +46,31 @@ let User = require('../db/schema.js').User
 
 //3. establish server-side api router: query for 'home' from server
 
+
 //api router list :
-//  /home (current)
 //  /viewAll
 //  /currentMonth
 //  /year
 //  /hallofshame
 
 
-    //home - at the moment: get all records 
-    //  apiRouter.get('/home', function(request,response){
-    //   console.log("getting records home")
-    //   Coh_HV.find({}, function(error,records){
-    //     response.send(records)
-    //   })
-    // })
-
     //get all 
     apiRouter.get('/viewAll', function(request, response){
       console.log('getting all records')
-      Coh_HV.find(request.query, function(error, records){
+      Coh_HV.find(request.query, function(error, records){ //how to find Coh_HV
         if(error){
           response.send(error)
         }
         else{
           response.json(records)
+
+        // response.status(status).json(obj)
         }
       })
     })
 
 
 module.exports = apiRouter
-
 
 
 

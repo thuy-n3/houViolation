@@ -3,14 +3,11 @@ import COH_Store from './store'
 
 //7. Establish actions module 
 
-
 const Actions = {
 
 	//create a fetch method: to query for data 
 	fetchReports: function(inputQuery){
-		COH_Store.data.collection.fetch({
-			data: inputQuery
-		})
+		COH_Store.data.collection.fetch()
 	}, 
 
 	//ASk TRAVIS!! How does updateView relate to set in actions.js??

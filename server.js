@@ -78,11 +78,19 @@ app.listen(PORT,function() {
 })
 
 
+///->>>>>the function below need to run to import and save to mongoDB
+
 //below mongoose is listening to a connection (npm run go)
 //when mongoose is connected to DB - it will run the CSV_import_fn in csv.js
-mongoose.connection.on('connected', function(){ 
-	console.log("MONGOOSE CONNECTTED!!!")
-	console.log(mongoose.connection.name)
-	CSV_import_fn()
-})
+//this will run everytime npm run go is start and will add a copy of the csv to the db
+//run when you have import new data file 
+
+// mongoose.connection.on('connected', function(){ 
+// 	console.log("MONGOOSE CONNECTTED!!!")
+// 	console.log(mongoose.connection.name)
+// 	CSV_import_fn()
+// })
+
+
+//---> find how to run it once and not on npm run go!!
 

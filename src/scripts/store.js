@@ -22,7 +22,7 @@ const COH_Store = _.extend( Backbone.Events, {
 
 	_getData: function(){
 
-		return_.clone(this.data)
+		return _.clone(this.data)
 		//data from here becomes the top level state (state of the app)
 		// make a clone because we don't want to modify the state(original data)
 	},
@@ -34,7 +34,6 @@ const COH_Store = _.extend( Backbone.Events, {
 
 		this.data[key] = value 
 		this._emitChange()
-
 		//_set is for when you are adding new props on to set by specifc key and values and will not accept jsut anything
 		//
 	}, 

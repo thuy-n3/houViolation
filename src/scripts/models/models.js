@@ -2,16 +2,20 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 import {app_name} from '../app'
 
-//5. Establish Collection and Models and exports them 
-
-const CohCollection = Backbone.Collection.extend ({
-	model: reportModel, 
-	url: '/viewAll'
-})
+//5. Establish Collection and Models and exports them
 
 const ReportModel = Backbone.Model.extend ({
+	url: "/api/viewAll",
+	idAttribute: "_id"
 
+}) 
+
+const CohCollection = Backbone.Collection.extend ({
+	model: ReportModel, 
+	url: "/api/viewAll"
 })
+
+
 
 
 

@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import HomeView from './views/homeView'
+import ViewAll from './views/ViewAll'
+import {CohCollection, ReportModel} from './models/models'
+
 
 
 //4. Build client-side app routes 
@@ -11,7 +15,7 @@ const app = function() {
 	const appRouter = Backbone.Router.extend({
 		routes: {
 			"home" : "showHome",
-			"/viewAll" : "showAll",
+			"viewAll" : "showAll",
 			"*catchAll" : "redirect"
 		},
 
