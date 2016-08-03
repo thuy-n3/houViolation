@@ -1,5 +1,6 @@
 global.PROJECT_NAME = 'houViol'
 
+
 if (!global.PROJECT_NAME) { //« set by npm run init-dev »
 	throw new Error('no project name set. did you forget to run "npm run init-dev"?')
 }
@@ -47,8 +48,11 @@ app.set('view engine', 'html');
 // =========
 // DATABASE
 // =========
-connectToDB(global.PROJECT_NAME)	//connecting to DB
-
+if(process.argv.indexOf('testr') > -1){
+	connectToDB(global.PROJECT_NAME + '_test')
+} else {
+	connectToDB(global.PROJECT_NAME)
+}
 // =========
 // APPLICATION MIDDLEWARE 
 // =========
@@ -85,11 +89,16 @@ app.listen(PORT,function() {
 //this will run everytime npm run go is start and will add a copy of the csv to the db
 //run when you have import new data file 
 
-// mongoose.connection.on('connected', function(){ 
-// 	console.log("MONGOOSE CONNECTTED!!!")
-// 	console.log(mongoose.connection.name)
-// 	CSV_import_fn()
-// })
+if(process.argv.indexOf('testr') > 1){
+	mongoose.connection.on('connected', function(){ 
+		console.log("MONGOOSE CONNECTTED!!!")
+		console.log(mongoose.connection.name)
+
+		console.log("Seeding Values....")
+
+		CSV_import_fn()
+	})
+}
 
 
 //---> find how to run it once and not on npm run go!!

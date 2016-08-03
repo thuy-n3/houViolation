@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "a javascript framework that will run an express server and connect it to a mongodb instance. uses mongoose for schemas, models, queries etc. comes with pre-fab user schema and auth router. pre-fab client-side session mantenance as well.\n\nin dev mode, auto-transpiles es6 and scss to es5 and css, browserifying all imported modules along the way.",
   "scripts": {
+    "testr": "npm run watch && NODE_ENV=development node --use_strict server.js testr",
     "go": "npm run watch && npm run dev",
     "deploy": "git push origin master && git push heroku master",
     "dev": "NODE_ENV=development node --use_strict server.js",
