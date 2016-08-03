@@ -77,10 +77,10 @@ let Coh_HV = require('../db/schema.js').Coh_HV
     //   })
     // })  
 
-    apiRouter.get('viewAll/', function(request, response){
-      console.log('getting weekly report records')
-      Coh_HV.find({})
-    })
+    // apiRouter.get('viewAll/', function(request, response){
+    //   console.log('getting weekly report records')
+    //   Coh_HV.find({})
+    // })
 
 module.exports = apiRouter
 
