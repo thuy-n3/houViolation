@@ -24,7 +24,7 @@ const csvHeaders= {
 
 
 function CSV_import_fn(){
-	importCSV.importCSV(__dirname+'/restaurants.csv', csvHeaders.Coh_HV.headers,'Coh_HV')
+	importCSV.importCSV(__dirname+'/places.csv', csvHeaders.Coh_HV.headers,'Coh_HV')
 }
 
 module.exports = CSV_import_fn

@@ -21,9 +21,9 @@ const usersSchema = new Schema({
 //1.establish schema for DB 
 const csvSchema = new Schema ({
 	InspectionID: {type: String},
-	FacilityHashID: {type: String}, 
 	InspectionDate: {type: Date},
 	InspectionStatus: {type: String},
+	InpsectionHashID: {type: String},
 	FacilityName: {type: String},
 	FacilityFullStreetAddress: {type: String},
 	FacilityZip: {type: Number}, 
@@ -39,3 +39,5 @@ module.exports = {
   Coh_HV: createModel('Coh_HV', csvSchema)  
 }
 
+
+//InspectionUID,FacilityHashID,InspectionDate,InspectionStatus,InpsectionHashID,FacilityName,FacilityFullStreetAddress,FacilityZip,EstablishmentType,Cuisine,FacilityRiskScore,FacilityRiskProfile

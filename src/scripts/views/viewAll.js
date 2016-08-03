@@ -62,7 +62,7 @@ const Reports = React.createClass({
 	render: function(){
 		console.log("from Report", this.props.reportsModel)
 		return (
-			<div>
+			<div className="reports">
 
 			
 				

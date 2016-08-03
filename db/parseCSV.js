@@ -1,7 +1,7 @@
 const csv = require("fast-csv"); 
 
 csv
-.fromPath("restaurants.csv", {
+.fromPath("places.csv", {
 	objectMode: true, 
 	headers: true,
 })
