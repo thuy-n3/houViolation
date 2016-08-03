@@ -46,7 +46,7 @@ const ReportContainer = React.createClass({
 		return(
 			<div className="reportContainer">
 
-				<h1>This is the ViewAll</h1>
+				<h1>All Roach Report</h1>
 
 				{this.props.collection.map(	(model)=> <Reports reportsModel={model} /> 
 
@@ -63,13 +63,11 @@ const Reports = React.createClass({
 		console.log("from Report", this.props.reportsModel)
 		return (
 			<div className="reports">
-
-			
 				
-				<h6>{this.props.reportsModel.get('FacilityName')}</h6>
-				<h6>{this.props.reportsModel.get('FacilityFullStreetAddress')}</h6>
-				<h6>{this.props.reportsModel.get('Cuisine')}</h6>
-				<h6>{this.props.reportsModel.get('InspectionStatus')}</h6>
+				<h2>{this.props.reportsModel.get('FacilityName')}</h2>
+				<h4>{this.props.reportsModel.get('FacilityFullStreetAddress')}</h4>
+				<h4>{this.props.reportsModel.get('Cuisine')}</h4>
+				<h4>{this.props.reportsModel.get('InspectionStatus')}</h4>
 
 			</div>
 		)
