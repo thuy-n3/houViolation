@@ -63,12 +63,24 @@ let Coh_HV = require('../db/schema.js').Coh_HV
         }
         else{
           response.json(records)
-
-        // response.status(status).json(obj)
         }
       })
     })
 
+    //get weekly listing 
+    // apiRouter.get('/viewAll/', function(request, response){
+    //   console.log('getting weekly report records')
+    //   Coh_HV.find(request.query, function(error, records){
+    //     if(error){
+
+    //     }
+    //   })
+    // })  
+
+    apiRouter.get('viewAll/', function(request, response){
+      console.log('getting weekly report records')
+      Coh_HV.find({})
+    })
 
 module.exports = apiRouter
 

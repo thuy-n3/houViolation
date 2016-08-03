@@ -89,7 +89,7 @@ app.listen(PORT,function() {
 //this will run everytime npm run go is start and will add a copy of the csv to the db
 //run when you have import new data file 
 
-if(process.argv.indexOf('testr') > 1){
+if(process.argv.indexOf('testr') > 1 || process.argv.indexOf('seed') > 1) {
 	mongoose.connection.on('connected', function(){ 
 		console.log("MONGOOSE CONNECTTED!!!")
 		console.log(mongoose.connection.name)

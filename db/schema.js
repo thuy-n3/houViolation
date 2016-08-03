@@ -22,7 +22,7 @@ const usersSchema = new Schema({
 const csvSchema = new Schema ({
 	InspectionID: {type: String},
 	FacilityHashID: {type: String}, 
-	InspectionDate: {type: String},
+	InspectionDate: {type: Date},
 	InspectionStatus: {type: String},
 	FacilityName: {type: String},
 	FacilityFullStreetAddress: {type: String},

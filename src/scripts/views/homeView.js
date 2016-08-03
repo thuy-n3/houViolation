@@ -5,6 +5,8 @@ import {CohCollection, ReportModel} from '../models/models'
 
 const HomeView = React.createClass({
 
+	//rendering the weekly view....need make fetch with weekly filter 
+
 	getInitialState: function(){
 		// console.log("collection from store", COH_Store.data.collection)
 		return COH_Store._getData()
@@ -47,8 +49,6 @@ const HomeView = React.createClass({
 })
 
 
-//<WeeklyView weekColl=/>
 
-// 	<viewAll allColl={this.state.collection} />
 	
 export default HomeView 
