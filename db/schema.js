@@ -22,8 +22,8 @@ const usersSchema = new Schema({
 const csvSchema = new Schema ({
 	InspectionID: {type: String},
 	InspectionDate: {type: Date},
+	InspectionScore: {type: Number},
 	InspectionStatus: {type: String},
-	InpsectionHashID: {type: String},
 	FacilityName: {type: String},
 	FacilityFullStreetAddress: {type: String},
 	FacilityZip: {type: Number}, 
@@ -40,4 +40,4 @@ module.exports = {
 }
 
 
-//InspectionUID,FacilityHashID,InspectionDate,InspectionStatus,InpsectionHashID,FacilityName,FacilityFullStreetAddress,FacilityZip,EstablishmentType,Cuisine,FacilityRiskScore,FacilityRiskProfile
+		

@@ -8,9 +8,9 @@ const csvHeaders= {
 	Coh_HV: {	
 		headers: [
 			'InspectionID',
-			'FacilityHashID', 
 			'InspectionDate',
-		 	'InspectionStatus',
+			'InspectionScore',
+			'InspectionStatus',
 			'FacilityName',
 			'FacilityFullStreetAddress',
 			'FacilityZip', 
@@ -24,9 +24,18 @@ const csvHeaders= {
 
 
 function CSV_import_fn(){
-	importCSV.importCSV(__dirname+'/places.csv', csvHeaders.Coh_HV.headers,'Coh_HV')
+	importCSV.importCSV(__dirname+'/full.csv', csvHeaders.Coh_HV.headers,'Coh_HV')
 }
 
 module.exports = CSV_import_fn
 
 //this is being read in server.js when there a connection when you do npm run go 
+
+//the headers in this model have to match the headers in schema 
+
+
+//InspectionUID,InspectionDate,InspectionScore,InspectionStatus,FacilityName,FacilityFullStreetAddress,FacilityZip,EstablishmentType,Cuisine,FacilityRiskScore,FacilityRiskProfile
+
+
+
+

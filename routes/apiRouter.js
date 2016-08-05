@@ -46,14 +46,6 @@ let Coh_HV = require('../db/schema.js').Coh_HV
 
 //3. establish server-side api router: query for 'home' from server
 
-
-//api router list :
-//  /viewAll
-//  /currentMonth
-//  /year
-//  /hallofshame
-
-
     //get all 
     apiRouter.get('/viewAll', function(request, response){
       console.log('getting all records')
@@ -67,20 +59,14 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       })
     })
 
-    //get weekly listing 
-    // apiRouter.get('/viewAll/', function(request, response){
-    //   console.log('getting weekly report records')
-    //   Coh_HV.find(request.query, function(error, records){
-    //     if(error){
 
-    //     }
-    //   })
-    // })  
 
     // apiRouter.get('viewAll/', function(request, response){
     //   console.log('getting weekly report records')
     //   Coh_HV.find({})
     // })
+
+    
 
 module.exports = apiRouter
 

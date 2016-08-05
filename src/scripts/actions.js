@@ -15,11 +15,14 @@ const Actions = {
 		
 	},
 
+	fetchQueryReports: function(inputQuery){
+		
+	},
+
 	//ASk TRAVIS!! How does updateView relate to set in actions.js??
 	updateView: function(viewString){
 		COH_Store.set('viewType', viewString)
 	}
-
 
 
 }

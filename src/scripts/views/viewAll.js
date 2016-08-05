@@ -8,7 +8,7 @@ const ViewAll = React.createClass({
 
 
 	getInitialState: function(){
-		// console.log("collection from store", COH_Store.data.collection)
+		console.log("collection from store", COH_Store.data.collection)
 		return COH_Store._getData()
 	},
 
@@ -46,9 +46,11 @@ const ReportContainer = React.createClass({
 		return(
 			<div className="reportContainer">
 
-				<h1>All Roach Report</h1>
+				<h1>Search The Roach Report</h1>
+				
 
-				{this.props.collection.map(	(model)=> <Reports reportsModel={model} /> 
+
+				{this.props.collection.map(	(model)=> <Reports reportsModel={model} key={model.id}/> 
 
 				)}
 
@@ -60,14 +62,14 @@ const ReportContainer = React.createClass({
 const Reports = React.createClass({
 
 	render: function(){
-		console.log("from Report", this.props.reportsModel)
+		// console.log("from Report", this.props.reportsModel)
 		return (
 			<div className="reports">
+
+				<input type="text" >Enter Restaurant Name </input>
 				
-				<h2>{this.props.reportsModel.get('FacilityName')}</h2>
-				<h4>{this.props.reportsModel.get('FacilityFullStreetAddress')}</h4>
-				<h4>{this.props.reportsModel.get('Cuisine')}</h4>
-				<h4>{this.props.reportsModel.get('InspectionStatus')}</h4>
+				<h3>Name: {this.props.reportsModel.get('FacilityName')}</h3>
+
 
 			</div>
 		)
@@ -75,3 +77,6 @@ const Reports = React.createClass({
 })
 
 export default ViewAll
+
+
+			
