@@ -4,7 +4,7 @@ import Actions from '../actions'
 import {CohCollection, ReportModel} from '../models/models'
 import $ from 'jquery'
 
-const ViewAll = React.createClass({
+const SearchView = React.createClass({
 
 
 	getInitialState: function(){
@@ -75,7 +75,4 @@ const Reports = React.createClass({
 	}
 })
 
-export default ViewAll
-
-
-			
+export default SearchView 

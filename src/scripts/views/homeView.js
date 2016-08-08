@@ -2,6 +2,7 @@ import React from 'React'
 import COH_Store from '../store'
 import Actions from '../actions'
 import {CohCollection, ReportModel} from '../models/models'
+import Header from './header'
 
 const HomeView = React.createClass({
 
@@ -15,17 +16,16 @@ const HomeView = React.createClass({
 	componentWillMount: function(){
 			// console.log("collection from store", COH_Store.data.collection)
 
-			let getReport 
-
+		
 			
-			Actions.fetchReports(getReport)
+			Actions.fetchReports()
 
 			COH_Store.on('updateContent', ()=> { 
 				this.setState(COH_Store._getData())
 			})
 	},
 
-	componentWillUnMount: function(){
+	componentWillUnmount: function(){
 		COH_Store.off('updateContent')
 
 	},
@@ -37,16 +37,15 @@ const HomeView = React.createClass({
 		return(
 			<div className="homeView">
 
-				<h1>The Roach Report</h1>
-
+				<Header />
 				
-
-
+				
 
 			</div>
 		)
 	}
 })
+
 
 
 

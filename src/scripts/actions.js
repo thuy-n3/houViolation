@@ -11,13 +11,13 @@ const Actions = {
 	}, 
 
 
-	fetchWeeklyReports: function(inputQuery){
+	// fetchWeeklyReports: function(inputQuery){
 		
-	},
+	// },
 
-	fetchQueryReports: function(inputQuery){
-		
-	},
+	// fetchQueryReports: function(inputQuery){
+	// 	//COH_Store.data.
+	// },
 
 	//ASk TRAVIS!! How does updateView relate to set in actions.js??
 	updateView: function(viewString){
