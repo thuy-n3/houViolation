@@ -48,8 +48,6 @@ const ReportContainer = React.createClass({
 
 				<h1>Search The Roach Report</h1>
 
-
-
 				{this.props.collection.map(	(model)=> <Reports reportsModel={model} key={model.id}/> 
 
 				)}

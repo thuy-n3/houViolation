@@ -20,18 +20,17 @@ const NavBar = React.createClass({
 
 	render: function(){
 		return(
-			<div id="NavBar">
+			<div id="navBar">
 
-				<button className="navButton" type="button" a herf="#home">HOME</button>
+				<button className="navButton"><a href="#home">Home</a></button>
+				<button className="navButton"><a href="#hallOfShame">Hall of Shame</a></button>
+				<button className="navButton"><a href="#allStars">All Stars</a></button>
+				<button className="navButton"><a href="#search">Search</a></button>
 
-				<a className="navButton" href="#home">Home</a>
-				<a className="navButton" href="#hallOfShame">Hall of Shame</a>
-				<a className="navButton" href="#allStars">All Stars</a>
-				<a className="navButton" href="#search">Search Reports</a>
-				
 			</div>
 		)
 	}
 })
 
 export default Header
+

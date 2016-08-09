@@ -5,14 +5,14 @@ import {app_name} from '../app'
 //5. Establish Collection and Models and exports them
 
 const ReportModel = Backbone.Model.extend ({
-	url: "/api/viewAll",
+	url: "/api/getReports",
 	idAttribute: "_id"
 
 }) 
 
 const CohCollection = Backbone.Collection.extend ({
 	model: ReportModel, 
-	url: "/api/viewAll"
+	url: "/api/getReports"
 })
 
 

@@ -42,14 +42,14 @@ let Coh_HV = require('../db/schema.js').Coh_HV
     })
 
    
-    // Routes for a Model(resource) should have this structure
+// Routes for a Model(resource) should have this structure
 
 //3. establish server-side api router: query for 'home' from server
 
-    //get all 
-    apiRouter.get('/viewAll', function(request, response){
+    //get all - see viewAll
+    apiRouter.get('/getReports', function(request, response){
       console.log('getting all records')
-      Coh_HV.find(request.query, function(error, records){ //how to find Coh_HV
+      Coh_HV.find(request.query).limit(100).exec(function(error, records){ //how to find Coh_HV
         if(error){
           response.send(error)
         }
@@ -59,12 +59,51 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       })
     })
 
+    apiRouter.get('/getByName', function(request, response){
+      console.log('getting all records')
+      Coh_HV.find(request.query).limit(100).exec(function(error, records){ //how to find Coh_HV
+        if(error){
+          response.send(error)
+        }
+        else{
+          response.json(records)
+        }
+      })
+    })
 
+    apiRouter.get('/getWorstRated', function(request, response){
+      console.log('getting all records')
+      Coh_HV.aggregate([
+      {  '$match': {'InspectionStatus': 'FAIL'}  },
+      {  '$group': {  _id: '$FacilityName', "inspectionsFailed":  {"$sum": 1 },   } },
+      {  '$sort': {  inspectionsFailed: -1 } },
+      {  "$limit" : 30 }
+      ], function(error, records){ //how to find Coh_HV
+        if(error){
+          response.send(error)
+        }
+        else{
+          response.json(records)
+        }
+      })
+    })
 
-    // apiRouter.get('viewAll/', function(request, response){
-    //   console.log('getting weekly report records')
-    //   Coh_HV.find({})
+    //to query for best..query how many time they pass and calculate the difference of how many time they pass fail
+
+    //get report by name 
+    // apiRouter.get('/getReports', function(request, response){
+    //   console.log('getting report by name')
+    //   Coh_HV.find({FacilityName: request.CohCollection.FacilityName}, function(error,records){
+    //     if(error){
+    //       response.send(error)
+    //     }
+    //     else{
+    //       response.json(records)
+    //     }
+    //   })
     // })
+
+
 
     
 

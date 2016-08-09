@@ -10,10 +10,9 @@ const Actions = {
 		COH_Store.data.collection.fetch()
 	}, 
 
-
-	// fetchWeeklyReports: function(inputQuery){
-		
-	// },
+	fetchWeeklyReports: function(inputQuery){
+		COH_Store.data.collection.fetch()
+	},
 
 	// fetchQueryReports: function(inputQuery){
 	// 	//COH_Store.data.
@@ -27,4 +26,9 @@ const Actions = {
 
 }
 
-export default Actions 
+export default Actions  
+
+
+// Actions.fetchReports({FacilityName: x? }) --> pass in the data attribute
+
+//fetch from the apiRouter of best or worstRating 

@@ -1,4 +1,4 @@
-global.PROJECT_NAME = 'houViol'
+global.PROJECT_NAME = 'houViolation'
 
 
 if (!global.PROJECT_NAME) { //« set by npm run init-dev »

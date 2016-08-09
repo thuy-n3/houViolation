@@ -9,11 +9,22 @@ h1 {
 	color: fuchsia;
 }
 
+#navBar {	
 
-.navButton
+	.navButton {
+		text-decoration: none; 
+		margin: 2%; 
+		padding: 2%;
+		border-radius: 26%;
 
-/*viewALL*/
-.reports{
+	
+	}
+}
+
+
+.weeklyReports{
 	border: solid silver 2px;
+	padding: 2%;
+
 
 }
