@@ -3,6 +3,7 @@ import COH_Store from '../store'
 import Actions from '../actions'
 import {CohCollection, ReportModel} from '../models/models'
 import $ from 'jquery'
+import Header from './header'
 
 
 const WeeklyView = React.createClass({
@@ -30,8 +31,11 @@ const WeeklyView = React.createClass({
 	render: function(){
 		return(
 			<div className="weeklyView">
+
+
 				
 				<WeeklyContainer collection={this.state.collection}/>
+
 
 			</div>
 		)
@@ -44,7 +48,9 @@ const WeeklyContainer = React.createClass({
 		return(
 			<div className="weeklyContainer">
 
-				<h1>this is the weekly Report </h1>
+				<h1> The Weekly Report</h1>
+
+				<Header />
 
 				{this.props.collection.map( (model)=> <WeeklyReports weeklyModel={model} key={model.id} />
 

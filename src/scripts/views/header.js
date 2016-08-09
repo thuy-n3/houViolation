@@ -6,8 +6,6 @@ const Header = React.createClass({
 	render: function(){
 		return(
 			<div id="headerContainer">
-				
-				<h1>The Roach Report</h1>
 
 				<NavBar />
 

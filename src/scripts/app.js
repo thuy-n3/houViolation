@@ -6,6 +6,8 @@ import HomeView from   './views/homeView'
 import WeeklyView from './views/weeklyView.js'
 import ViewAll from    './views/viewAll'
 import HallOfShame from './views/hallOfShame'
+import AllStars from './views/allStars'
+import SearchView from './views/search'
 import {CohCollection, ReportModel} from './models/models'
 
 //remember to export and import all views to app.js

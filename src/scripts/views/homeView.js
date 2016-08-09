@@ -37,8 +37,13 @@ const HomeView = React.createClass({
 		return(
 			<div className="homeView">
 
+				<h1>The Roach Report</h1>
+
 				<Header />
+
+				<h2 className="intro">Do you want to know if your favorite restaurant failed their health inspection?</h2>
 				
+				<img className="roach" src="https://s-media-cache-ak0.pinimg.com/236x/0a/a7/81/0aa7815c194f8248b92135c17b9d6d12.jpg" />
 
 			</div>
 		)

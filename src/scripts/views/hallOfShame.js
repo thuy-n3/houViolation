@@ -3,6 +3,7 @@ import COH_Store from '../store'
 import Actions from '../actions'
 import {CohCollection, ReportModel} from '../models/models'
 import $ from 'jquery'
+import Header from './header'
 
 const HallOfShame = React.createClass({
 
@@ -34,8 +35,11 @@ const HallOfShame = React.createClass({
 		console.log("collection from store", COH_Store.data.collection)
 		return(
 			<div className="weeklyView">
+
+
 				
 				<ShameContainer collection={this.state.collection}/>
+
 
 			</div>
 		)
@@ -52,14 +56,30 @@ const HallOfShame = React.createClass({
 const ShameContainer = React.createClass({
 
 
+	// render: function(){
+	// 	return(
+	// 		<div>
+				
+	// 			<h1>Hall of Shame</h1>
+
+	// 			{this.props.collection.map( (model)=> <ShameReport shameModel={model} /> )
+
+	// 			}}
+
+	// 		</div>
+	// 	)
+	// })
+
 	render: function(){
 		return(
 			<div>
-				
+
 				<h1>Hall of Shame</h1>
+				<Header />
+
+				<h3 className="shameIntro">Restaurants that has been repeat offender of failing their health inspections</h3>
 
 				{this.props.collection.map( (model)=> <ShameReport shameModel={model} />
-
 
 				)}
 
@@ -67,6 +87,13 @@ const ShameContainer = React.createClass({
 		)
 	}
 })
+
+
+// $.map(result.products, function (item, i) {
+//     if(i>9){
+//         return null
+//     }
+// }
 
 const ShameReport = React.createClass({
 

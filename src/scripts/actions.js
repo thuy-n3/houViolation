@@ -24,7 +24,7 @@ const Actions = {
 		})
 	},
 
-	// fetchQueryReports: function(inputQuery){
+	// fetchSearchReports: function(inputQuery){
 	// 	//COH_Store.data.
 	// },
 
