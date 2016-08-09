@@ -71,11 +71,12 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       })
     })
 
+    //get the worst - repeat offender
     apiRouter.get('/getWorstRated', function(request, response){
       console.log('getting all records')
       Coh_HV.aggregate([
       {  '$match': {'InspectionStatus': 'FAIL'}  },
-      {  '$group': {  _id: '$FacilityName', "inspectionsFailed":  {"$sum": 1 },   } },
+      {  '$group': {  _id: '$FacilityFullStreetAddress', "inspectionsFailed":  {"$sum": 1 },   } },
       {  '$sort': {  inspectionsFailed: -1 } },
       {  "$limit" : 10 }
       ], function(error, records){ //how to find Coh_HV
@@ -87,6 +88,25 @@ let Coh_HV = require('../db/schema.js').Coh_HV
         }
       })
     })
+
+    //get the best 
+        apiRouter.get('/getBestRated', function(request, response){
+      console.log('getting all records')
+      Coh_HV.aggregate([
+      {  '$match': {'InspectionStatus': 'PASS'}  },
+      {  '$group': {  _id: '$FacilityName', "inspectionsPassed":  {"$sum": 1 },   } },
+      {  '$sort': {  inspectionsPassed: -1 } },
+      {  "$limit" : 10 }
+      ], function(error, records){ //how to find Coh_HV
+        if(error){
+          response.send(error)
+        }
+        else{
+          response.json(records)
+        }
+      })
+    })
+
 
     //to query for best..query how many time restaurant pass and calculate the difference of how many time they pass fail
 

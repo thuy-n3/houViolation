@@ -23,7 +23,6 @@ const app = function() {
 			"hallofshame": "showHallOfShame",
 			"allstars"	 : "showAllStars",
 			"search"	 : "showSearch",			
-			// "viewAll" : "showAll",
 			"*catchAll"  : "redirect"
 		},
 
@@ -51,9 +50,6 @@ const app = function() {
 		showSearch: function(){
 			ReactDOM.render(<SearchView />, document.querySelector('.container'))
 		},
-		// showAll: function(){
-		// 	ReactDOM.render(<ViewAll />, document.querySelector('.container'))
-		// },
 
 		initialize: function(){
 			Backbone.history.start()

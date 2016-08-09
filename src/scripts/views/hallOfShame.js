@@ -56,20 +56,6 @@ const HallOfShame = React.createClass({
 const ShameContainer = React.createClass({
 
 
-	// render: function(){
-	// 	return(
-	// 		<div>
-				
-	// 			<h1>Hall of Shame</h1>
-
-	// 			{this.props.collection.map( (model)=> <ShameReport shameModel={model} /> )
-
-	// 			}}
-
-	// 		</div>
-	// 	)
-	// })
-
 	render: function(){
 		return(
 			<div>
@@ -101,8 +87,10 @@ const ShameReport = React.createClass({
 		console.log("from ShameReport", this.props.shameModel)
 		return(
 			<div>
-				<h3>{this.props.shameModel.get('_id')}</h3>
-				<h5> Inspections Failed: {this.props.shameModel.get('inspectionsFailed')}</h5>
+				<h3> {this.props.shameModel.get('FacilityName')}</h3>
+				<h5> {this.props.shameModel.get('FacilityFullStreetAddress')}</h5>
+				<h5> {this.props.shameModel.get('FacilityZip')}</h5>
+
 			</div>
 		)
 	}
