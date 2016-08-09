@@ -23,8 +23,9 @@ const NavBar = React.createClass({
 			<div id="navBar">
 
 				<button className="navButton"><a href="#home">Home</a></button>
-				<button className="navButton"><a href="#hallOfShame">Hall of Shame</a></button>
-				<button className="navButton"><a href="#allStars">All Stars</a></button>
+				<button className="navButton"><a href="#weekly">Weekly</a></button>
+				<button className="navButton"><a href="#hallofshame">Hall of Shame</a></button>
+				<button className="navButton"><a href="#allstars">All Stars</a></button>
 				<button className="navButton"><a href="#search">Search</a></button>
 
 			</div>

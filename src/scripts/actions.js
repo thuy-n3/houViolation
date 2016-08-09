@@ -7,11 +7,20 @@ const Actions = {
 
 	//create a fetch method: to query for data 
 	fetchReports: function(inputQuery){
+		COH_Store.data.collection.url = '/api/getReport'
 		COH_Store.data.collection.fetch()
 	}, 
 
 	fetchWeeklyReports: function(inputQuery){
+		COH_Store.data.collection.url = '/api/getReport'
 		COH_Store.data.collection.fetch()
+	},
+
+	fetchWorstReports: function(inputQuery){
+		// COH_Store.data.collection.url = '/api/getWorstRated'
+		COH_Store.data.collection.fetch({
+			url: "/api/getWorstRated"
+		})
 	},
 
 	// fetchQueryReports: function(inputQuery){

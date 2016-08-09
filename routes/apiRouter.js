@@ -77,7 +77,7 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       {  '$match': {'InspectionStatus': 'FAIL'}  },
       {  '$group': {  _id: '$FacilityName', "inspectionsFailed":  {"$sum": 1 },   } },
       {  '$sort': {  inspectionsFailed: -1 } },
-      {  "$limit" : 30 }
+      {  "$limit" : 10 }
       ], function(error, records){ //how to find Coh_HV
         if(error){
           response.send(error)
@@ -88,7 +88,7 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       })
     })
 
-    //to query for best..query how many time they pass and calculate the difference of how many time they pass fail
+    //to query for best..query how many time restaurant pass and calculate the difference of how many time they pass fail
 
     //get report by name 
     // apiRouter.get('/getReports', function(request, response){

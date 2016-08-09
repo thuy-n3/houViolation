@@ -11,7 +11,6 @@ const COH_Store = _.extend( Backbone.Events, {
 	data:{ //this collection is on state 
 
 		collection: new CohCollection() //make new instance of CohCollection
-
 	
 	}, 
 
