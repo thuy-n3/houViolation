@@ -7,17 +7,18 @@ const Actions = {
 
 	//create a fetch method: to query for data 
 	fetchReports: function(inputQuery){
-		COH_Store.data.collection.url = '/api/getReport'
+		
 		COH_Store.data.collection.fetch()
 	}, 
 
 	fetchWeeklyReports: function(inputQuery){
-		COH_Store.data.collection.url = '/api/getReport'
+		
 		COH_Store.data.collection.fetch()
 	},
 
 	fetchWorstReports: function(inputQuery){
 		// COH_Store.data.collection.url = '/api/getWorstRated'
+		//passing in the the api url to the getWorstRated end point so the filered collection to be pass through
 		COH_Store.data.collection.fetch({
 			url: "/api/getWorstRated"
 		})

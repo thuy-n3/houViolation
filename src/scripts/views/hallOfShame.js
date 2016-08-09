@@ -35,7 +35,7 @@ const HallOfShame = React.createClass({
 		return(
 			<div className="weeklyView">
 				
-				<ShameContainer collection={this.state.collection.url}/>
+				<ShameContainer collection={this.state.collection}/>
 
 			</div>
 		)
@@ -58,7 +58,10 @@ const ShameContainer = React.createClass({
 				
 				<h1>Hall of Shame</h1>
 
+				{this.props.collection.map( (model)=> <ShameReport shameModel={model} />
 
+
+				)}
 
 			</div>
 		)
@@ -72,7 +75,7 @@ const ShameReport = React.createClass({
 		return(
 			<div>
 				<h3>{this.props.shameModel.get('_id')}</h3>
-				<h5>{this.props.shameModel.get('inspectionFailed')}</h5>
+				<h5> Inspections Failed: {this.props.shameModel.get('inspectionsFailed')}</h5>
 			</div>
 		)
 	}
