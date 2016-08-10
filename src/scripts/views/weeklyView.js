@@ -6,6 +6,9 @@ import $ from 'jquery'
 import Header from './header'
 
 
+//===>this page might turn into an 'ABOUT' page or 'random roach - roach roulette'
+
+
 const WeeklyView = React.createClass({
 
 	getInitialState: function(){

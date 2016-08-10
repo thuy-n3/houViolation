@@ -32,9 +32,9 @@ const HallOfShame = React.createClass({
 	},
 
 	render: function(){
-		console.log("collection from store", COH_Store.data.collection)
+		console.log("from hallofshame - collection from store", COH_Store.data.collection)
 		return(
-			<div className="weeklyView">
+			<div className="shameView">
 
 
 				
@@ -84,7 +84,7 @@ const ShameContainer = React.createClass({
 const ShameReport = React.createClass({
 
 	render: function(){
-		console.log("from ShameReport", this.props.shameModel)
+		console.log("from hallofshame - ShameReport", this.props.shameModel)
 		return(
 			<div>
 				<h3> {this.props.shameModel.get('FacilityName')}</h3>

@@ -96,7 +96,7 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       {  '$match': {'InspectionStatus': 'PASS'}  },
       {  '$group': {  _id: '$FacilityName', "inspectionsPassed":  {"$sum": 1 },   } },
       {  '$sort': {  inspectionsPassed: -1 } },
-      {  "$limit" : 10 }
+      {  "$limit" : 10}
       ], function(error, records){ //how to find Coh_HV
         if(error){
           response.send(error)

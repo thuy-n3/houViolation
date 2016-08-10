@@ -27,32 +27,51 @@ const Actions = {
 		//passing in the the api url to the getWorstRated end point so the filered collection to be pass through
 		$.getJSON("/api/getWorstRated")
 			.then((dbResults)=>{
-				console.log('the result from db',dbResults)
+				console.log('from actions - the result from db',dbResults)
 
 				//use dbResult and interate over to populate the Actipons.fetchReports dynamicly 
 
 				return Actions.fetchReports({
 					
 					"FacilityFullStreetAddress" : {
-						"$in": ["421 SAN JACINTO", "7303 BREEN DR STE A" ]
+						"$in": ["421 SAN JACINTO", "7303 BREEN DR STE A"]
 					},
 
 					"InspectionStatus": "FAIL"
 				})
 			})
 			.then((allReports)=>{
-				console.log("object of allReports",allReports)
-				console.log("collection after fetchReports",COH_Store.data.collection)
+				console.log("from actions - object of allReports",allReports)
+				console.log("from actions - collection after fetchReports",COH_Store.data.collection)
 
 				//check out the COH_Store.data.collection for fetch data....might have to put into a collection 
 			})
 	},
 
-	// fetchSearchReports: function(inputQuery){
-	// 	//COH_Store.data.
-	// },
 
-	//ASk TRAVIS!! How does updateView relate to set in actions.js??
+/*	fetchWorstReports: function(inputQuery){
+		$.getJSON("/api/getWorstRated")
+			.then( (dbResults)).map(dbResults)=>(){
+
+				return Actions.fetchReports({
+					"FacilityFullStreetAddress":{
+						"$in": [_id]
+					},
+					"InspectionStatus": [inspectionFailed]
+				})
+			}
+			.then( (allReports)=>{
+				console.log("from actions - object of allReports", allReports)
+				console.log("from actions - collection after fetchReports", COH_Store.data.collection)
+			})
+	},
+*/
+
+	fetchSearchReports: function(inputQuery){
+		//COH_Store.data.
+	},
+
+	
 	updateView: function(viewString){
 		COH_Store.set('viewType', viewString)
 	}
