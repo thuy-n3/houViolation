@@ -72,6 +72,7 @@ const Actions = {
 	fetchWorstReports: function(inputQuery){
 		var failedReportsByLocation ={}
 
+
 		$.getJSON("/api/getWorstRated")
 			.then((dbResults)=>{
 
@@ -104,6 +105,27 @@ const Actions = {
 				// })
 
 				console.log(" # failed Reports by location with Address",failedReportsByLocation[firstFailedReportAddress])
+
+				var directoryOfRestaurantsThatFailed = {}
+
+				failureReportsFullRecord.forEach( function(record){
+					if ( !directoryOfRestaurantsThatFailed[record.FacilityName] ) {
+							directoryOfRestaurantsThatFailed[record.FacilityName] = {
+							facilityName: record.FacilityName,
+							inspectionsFailed: failedReportsByLocation[record.FacilityFullStreetAddress],
+							facilityAddress: record.FacilityFullStreetAddress, 
+							facilityZip: record.FaciilityZip
+						}
+					}
+				})
+
+
+				console.log(directoryOfRestaurantsThatFailed)
+				let listOfFaileds = []
+				for (var prop in directoryOfRestaurantsThatFailed){
+					listOfFaileds.push(directoryOfRestaurantsThatFailed[prop])
+				}
+				console.log("list of Faileds", listOfFaileds)
 			})
 	},
 
