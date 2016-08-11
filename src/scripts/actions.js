@@ -69,7 +69,7 @@ const Actions = {
 	// 		})
 	// },
 
-	fetchWorstReports: function(listOfFaileds){
+	fetchWorstReports: function(inputQuery){
 		var failedReportsByLocation ={}
 
 

@@ -12,12 +12,12 @@ const HallOfShame = React.createClass({
 		return COH_Store._getData()
 	},
 
-	componentWillMount: function(listOfFaileds){
+	componentWillMount: function(){
 			console.log("collection from store in componentWillMount", COH_Store.data.collection)
 
 			// Actions.fetchWorstReports({FacilityName: "DENNY'S"})
 
-			Actions.fetchWorstReports(listOfFaileds)
+			Actions.fetchWorstReports()
 			
 			// Actions.fetchWorstReports(FacilityName: "RACHEL'S SANDWICH SHOP","IBAR  & GRILL","DENNY'S")
 			// Actions.fetchWorstReports(FacilityName: "IBAR  & GRILL")
