@@ -69,7 +69,7 @@ const Actions = {
 	// 		})
 	// },
 
-	fetchWorstReports: function(inputQuery){
+	fetchWorstReports: function(listOfFaileds){
 		var failedReportsByLocation ={}
 
 
@@ -114,7 +114,7 @@ const Actions = {
 							facilityName: record.FacilityName,
 							inspectionsFailed: failedReportsByLocation[record.FacilityFullStreetAddress],
 							facilityAddress: record.FacilityFullStreetAddress, 
-							facilityZip: record.FaciilityZip
+							facilityZip: record.FacilityZip
 						}
 					}
 				})
@@ -125,7 +125,7 @@ const Actions = {
 				for (var prop in directoryOfRestaurantsThatFailed){
 					listOfFaileds.push(directoryOfRestaurantsThatFailed[prop])
 				}
-				console.log("list of Faileds", listOfFaileds)
+				console.log("list of Faileds from actions", listOfFaileds)
 			})
 	},
 

@@ -8,16 +8,16 @@ import Header from './header'
 const HallOfShame = React.createClass({
 
 		getInitialState: function(){
-		// console.log("collection from store", COH_Store.data.collection)
+		console.log("collection from store", COH_Store.data.collection)
 		return COH_Store._getData()
 	},
 
-	componentWillMount: function(){
+	componentWillMount: function(listOfFaileds){
 			console.log("collection from store in componentWillMount", COH_Store.data.collection)
 
 			// Actions.fetchWorstReports({FacilityName: "DENNY'S"})
 
-			Actions.fetchWorstReports("FacilityName")
+			Actions.fetchWorstReports(listOfFaileds)
 			
 			// Actions.fetchWorstReports(FacilityName: "RACHEL'S SANDWICH SHOP","IBAR  & GRILL","DENNY'S")
 			// Actions.fetchWorstReports(FacilityName: "IBAR  & GRILL")
@@ -65,7 +65,7 @@ const ShameContainer = React.createClass({
 				<h1>Hall of Shame</h1>
 				<Header />
 
-				<h3 className="shameIntro">Restaurants that has been repeat offender of failing their health inspections</h3>
+				<h3 className="shameIntro">Restaurants who are serial offenders of Health Inspections</h3>
 
 				{this.props.collection.map( (model)=> <ShameReport shameModel={model} />
 

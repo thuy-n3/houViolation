@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import HomeView from   './views/homeView'
-import WeeklyView from './views/weeklyView.js'
+import RoachRoulette from './views/weeklyView.js'
 import ViewAll from    './views/viewAll'
 import HallOfShame from './views/hallOfShame'
 import AllStars from './views/allStars'
@@ -19,7 +19,7 @@ const app = function() {
 	const appRouter = Backbone.Router.extend({
 		routes: {
 			"home" 		 : "showHome",
-			"weekly"	 : "showWeekly",
+			"roachroulette"	 : "showRoulette",
 			"hallofshame": "showHallOfShame",
 			"allstars"	 : "showAllStars",
 			"search"	 : "showSearch",			
@@ -34,8 +34,8 @@ const app = function() {
 			ReactDOM.render(<HomeView />, document.querySelector('.container'))
 		},
 
-		showWeekly: function(){
-			ReactDOM.render(<WeeklyView />, document.querySelector('.container'))
+		showRoulette: function(){
+			ReactDOM.render(<RoachRouletteView />, document.querySelector('.container'))
 			// alert('test')
 		},
 

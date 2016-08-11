@@ -1,6 +1,7 @@
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
+	font-family: 
 }
 
 h1 {
@@ -14,14 +15,18 @@ h1 {
 #navBar {	
 
 	.navButton {
-		text-decoration: none; 
+		 
 		margin: 2%; 
 		padding: 2%;
 		border-radius: 26%;
-		text: 15px;
+		
 
-	
 	}
+	a{
+			text-decoration: none; 
+			font-size: 15px;
+		}
+	
 }
 
 //weekly

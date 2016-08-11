@@ -21,7 +21,7 @@ const NavBar = React.createClass({
 			<div id="navBar">
 
 				<button className="navButton"><a href="#home">Home</a></button>
-				<button className="navButton"><a href="#weekly">Weekly</a></button>
+				<button className="navButton"><a href="#roachroulette">Roach Roulette</a></button>
 				<button className="navButton"><a href="#hallofshame">Hall of Shame</a></button>
 				<button className="navButton"><a href="#allstars">All Stars</a></button>
 				<button className="navButton"><a href="#search">Search</a></button>
