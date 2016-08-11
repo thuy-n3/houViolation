@@ -69,7 +69,7 @@ const Actions = {
 	// 		})
 	// },
 
-	fetchWorstReports: function(listOfFaileds){
+	fetchWorstReports: function(inputQuery){
 		var failedReportsByLocation ={}
 
 
@@ -119,50 +119,17 @@ const Actions = {
 					}
 				})
 
-
 				console.log(directoryOfRestaurantsThatFailed)
 				let listOfFaileds = []
 				for (var prop in directoryOfRestaurantsThatFailed){
 					listOfFaileds.push(directoryOfRestaurantsThatFailed[prop])
 				}
 				console.log("list of Faileds from actions", listOfFaileds)
+				COH_Store._set('worstList', listOfFaileds)
 			})
+
+
 	},
-
-	// fetchWorstReports: function(inputQuery){
-	// 	$.getJSON("/api/getWorstRated")
-	// 		.then((dbResults)=>{
-	// 			dbResults.map((dbArr) => {
-	// 				return Actions.fetchReports({
-	// 					"FacilityFullStreetAddress": {
-	// 						"$in":[dbArr._id]
-	// 					},
-	// 					"InspectionStatus": [dbArr.inspectionFailed]
-	// 				})
-	// 			})
-	// 		})
-	// 		.then((allReports)=>{
-	// 			console.log("from actions - object of allReports", allReports)
-	// 			console.log("from actions - collection after fetchReports", COH_Store.data.collection)
-	// 		})
-	// },
-
-	// fetchWorstReports: function(inputQuery){
-	// 	$.getJSON("/api/getWorstRated")
-	// 		.then((dbResults)=>{
-	// 			return Actions.fetchReports.map((dbResults)=>{
-	// 				"FacilityFullStreetAddress": {
-	// 					"$in": [dbResults._id]
-	// 				}, 
-	// 				"InspectionStatus": [dbResults.inspectionFailed]
-	// 			})
-	// 		})
-	// 		.then((allReports)=>{
-	// 			console.log("from actions - object of allReports", allReports)
-	// 			console.log("from actions - collection after fetchReports", COH_Store.data.collection)
-	// 		})
-	// })
-
 
 
 	fetchSearchReports: function(inputQuery){

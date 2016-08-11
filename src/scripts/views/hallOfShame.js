@@ -12,12 +12,13 @@ const HallOfShame = React.createClass({
 		return COH_Store._getData()
 	},
 
-	componentWillMount: function(listOfFaileds){
-			console.log("collection from store in componentWillMount", COH_Store.data.collection)
+	componentWillMount: function(){
+			console.log("hallofShame - collection from store in componentWillMount", COH_Store.data.collection)
 
 			// Actions.fetchWorstReports({FacilityName: "DENNY'S"})
 
-			Actions.fetchWorstReports(listOfFaileds)
+			Actions.fetchWorstReports()
+
 			
 			// Actions.fetchWorstReports(FacilityName: "RACHEL'S SANDWICH SHOP","IBAR  & GRILL","DENNY'S")
 			// Actions.fetchWorstReports(FacilityName: "IBAR  & GRILL")
@@ -34,13 +35,13 @@ const HallOfShame = React.createClass({
 	},
 
 	render: function(){
-		console.log("from hallofshame - collection from store in render", COH_Store.data.collection)
+		console.log("from hallofshame - collection from store in render", COH_Store.data.worstList)
 		return(
 			<div className="shameView">
 
 
-				
-				<ShameContainer collection={this.state.collection}/>
+			
+				<ShameContainer worstL={this.state.worstList}/>
 
 
 			</div>
@@ -49,7 +50,7 @@ const HallOfShame = React.createClass({
 })
 
 
-//{this.props.collection.map( (model)=> <ShameReport shameModel={model} key={model.id} /> )}
+//{this.props.collection.map( (model)=> <ShameReport shameList={model} key={model.id} /> )}
 
 // Actions.fetchReports({FacilityName: x? }) --> pass in the data attribute
 
@@ -67,7 +68,7 @@ const ShameContainer = React.createClass({
 
 				<h3 className="shameIntro">Restaurants who are serial offenders of Health Inspections</h3>
 
-				{this.props.collection.map( (model)=> <ShameReport shameModel={model} />
+				{this.props.worstL.map( (wList)=> <ShameReport shameList={wList} />
 
 				)}
 
@@ -86,12 +87,15 @@ const ShameContainer = React.createClass({
 const ShameReport = React.createClass({
 
 	render: function(){
-		console.log("from hallofshame - ShameReport from shameModel", this.props.shameModel)
+		console.log("from hallofshame - ShameReport from shameList", this.props.shameList)
 		return(
 			<div>
-				<h3> {this.props.shameModel.get('FacilityName')}</h3>
-				<h5> {this.props.shameModel.get('FacilityFullStreetAddress')}</h5>
-				<h5> {this.props.shameModel.get('FacilityZip')}</h5>
+
+				<h3>{this.props.shameList.facilityName}</h3>
+				<h3>{this.props.shameList.facilityAddress}</h3>
+				<h3>{this.props.shameList.facilityZip}</h3>
+				<h3>Inspection Failed: {this.props.shameList.inspectionsFailed}</h3>
+
 
 			</div>
 		)
@@ -99,3 +103,14 @@ const ShameReport = React.createClass({
 })
 
 export default HallOfShame
+
+	// <h3> {this.props.shameList.get('FacilityName')}</h3>
+	// <h5> {this.props.shameList.get('FacilityFullStreetAddress')}</h5>
+	// <h5> {this.props.shameList.get('FacilityZip')}</h5>
+
+
+
+
+
+
+

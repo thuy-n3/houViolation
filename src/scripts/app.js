@@ -18,12 +18,12 @@ const app = function() {
 
 	const appRouter = Backbone.Router.extend({
 		routes: {
-			"home" 		 : "showHome",
+			"home" 		 	 : "showHome",
 			"roachroulette"	 : "showRoulette",
-			"hallofshame": "showHallOfShame",
-			"allstars"	 : "showAllStars",
-			"search"	 : "showSearch",			
-			"*catchAll"  : "redirect"
+			"hallofshame"	 : "showHallOfShame",
+			"allstars"	 	 : "showAllStars",
+			"search"	 	 : "showSearch",			
+			"*catchAll"  	 : "redirect"
 		},
 
 		redirect: function(){
@@ -35,7 +35,7 @@ const app = function() {
 		},
 
 		showRoulette: function(){
-			ReactDOM.render(<RoachRouletteView />, document.querySelector('.container'))
+			ReactDOM.render(<RoachRoulette />, document.querySelector('.container'))
 			// alert('test')
 		},
 

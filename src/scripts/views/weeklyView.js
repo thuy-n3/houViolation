@@ -9,7 +9,7 @@ import Header from './header'
 //===>this page might turn into an 'ABOUT' page or 'random roach - roach roulette'
 
 
-const RoachRoulette  = React.createClass({
+const RoachRoulette = React.createClass({
 
 	getInitialState: function(){
 		console.log("collection from store", COH_Store.data.collection)
