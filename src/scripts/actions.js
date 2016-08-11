@@ -22,50 +22,126 @@ const Actions = {
 		})
 	},
 
+	// fetchWorstReports: function(inputQuery){
+	// 	// COH_Store.data.collection.url = '/api/getWorstRated'
+	// 	//passing in the the api url to the getWorstRated end point so the filered collection to be pass through
+	// 	$.getJSON("/api/getWorstRated")
+	// 		.then((dbResults)=>{
+	// 			console.log('from actions - the result from db',dbResults)
+
+	// 			//use dbResult and interate over to populate the Actipons.fetchReports dynamicly 
+
+	// 			return Actions.fetchReports({
+					
+	// 				"FacilityFullStreetAddress" : {
+	// 					"$in": ["421 SAN JACINTO", "7303 BREEN DR STE A"]
+	// 				},
+
+	// 				"InspectionStatus": "FAIL"
+	// 			})
+	// 		})
+	// 		.then((allReports)=>{
+	// 			console.log("from actions - object of allReports",allReports)
+	// 			console.log("from actions - collection after fetchReports",COH_Store.data.collection)
+
+	// 			//check out the COH_Store.data.collection for fetch data....might have to put into a collection 
+	// 		})
+	// },
+
+	// fetchWorstReports: function(inputQuery){
+	// 	$.getJSON("/api/getWorstRated")
+	// 		.then((dbResults)=> {
+
+	// 			dbResults.map( (failedReport)=>{
+	// 				return Actions.fetchReports({
+
+	// 					"FacilityFullStreetAddress": {
+	// 						"$in": failedReport._id
+	// 					}, 
+	// 					"InspectionStatus": failedReport.inspectionFailed
+	// 				})
+	// 			})
+
+	// 		})
+	// 		.then((allReports)=>{
+	// 			console.log("from actions - object of allReports", allReports)
+	// 			console.log("from actions - collection after fetchReports", COH_Store.data.collection)
+	// 		})
+	// },
+
 	fetchWorstReports: function(inputQuery){
-		// COH_Store.data.collection.url = '/api/getWorstRated'
-		//passing in the the api url to the getWorstRated end point so the filered collection to be pass through
+		var failedReportsByLocation ={}
+
 		$.getJSON("/api/getWorstRated")
 			.then((dbResults)=>{
-				console.log('from actions - the result from db',dbResults)
 
-				//use dbResult and interate over to populate the Actipons.fetchReports dynamicly 
+				dbResults.forEach((location)=>{
+					failedReportsByLocation[location._id] = location.inspectionsFailed
+				})
+
+				let listOfAddresses = dbResults.map((failedReport)=>{
+					return failedReport._id
+				})
 
 				return Actions.fetchReports({
-					
-					"FacilityFullStreetAddress" : {
-						"$in": ["421 SAN JACINTO", "7303 BREEN DR STE A"]
-					},
 
+					"FacilityFullStreetAddress": {
+						"$in" : listOfAddresses
+					}, 
+					
 					"InspectionStatus": "FAIL"
 				})
-			})
-			.then((allReports)=>{
-				console.log("from actions - object of allReports",allReports)
-				console.log("from actions - collection after fetchReports",COH_Store.data.collection)
+			}).then( (failureReportsFullRecord) =>{
+				console.log("failed fullReport",failureReportsFullRecord)
+				console.log("failed by location",failedReportsByLocation)
+				console.log("address of location fail",failureReportsFullRecord[0].FacilityFullStreetAddress)
 
-				//check out the COH_Store.data.collection for fetch data....might have to put into a collection 
-			})
-	},
+				let firstFailedReportAddress = failureReportsFullRecord[0].FacilityFullStreetAddress
 
+				// let listOfFailedPlaces = {}
+				// failureReportsFullRecord.forEach( (record)=>{
+				// 	listOfFailedPlaces
+				// })
 
-/*	fetchWorstReports: function(inputQuery){
-		$.getJSON("/api/getWorstRated")
-			.then( (dbResults)).map(dbResults)=>(){
-
-				return Actions.fetchReports({
-					"FacilityFullStreetAddress":{
-						"$in": [_id]
-					},
-					"InspectionStatus": [inspectionFailed]
-				})
-			}
-			.then( (allReports)=>{
-				console.log("from actions - object of allReports", allReports)
-				console.log("from actions - collection after fetchReports", COH_Store.data.collection)
+				console.log(" # failed Reports by location with Address",failedReportsByLocation[firstFailedReportAddress])
 			})
 	},
-*/
+
+	// fetchWorstReports: function(inputQuery){
+	// 	$.getJSON("/api/getWorstRated")
+	// 		.then((dbResults)=>{
+	// 			dbResults.map((dbArr) => {
+	// 				return Actions.fetchReports({
+	// 					"FacilityFullStreetAddress": {
+	// 						"$in":[dbArr._id]
+	// 					},
+	// 					"InspectionStatus": [dbArr.inspectionFailed]
+	// 				})
+	// 			})
+	// 		})
+	// 		.then((allReports)=>{
+	// 			console.log("from actions - object of allReports", allReports)
+	// 			console.log("from actions - collection after fetchReports", COH_Store.data.collection)
+	// 		})
+	// },
+
+	// fetchWorstReports: function(inputQuery){
+	// 	$.getJSON("/api/getWorstRated")
+	// 		.then((dbResults)=>{
+	// 			return Actions.fetchReports.map((dbResults)=>{
+	// 				"FacilityFullStreetAddress": {
+	// 					"$in": [dbResults._id]
+	// 				}, 
+	// 				"InspectionStatus": [dbResults.inspectionFailed]
+	// 			})
+	// 		})
+	// 		.then((allReports)=>{
+	// 			console.log("from actions - object of allReports", allReports)
+	// 			console.log("from actions - collection after fetchReports", COH_Store.data.collection)
+	// 		})
+	// })
+
+
 
 	fetchSearchReports: function(inputQuery){
 		//COH_Store.data.

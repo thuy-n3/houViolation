@@ -13,9 +13,11 @@ const HallOfShame = React.createClass({
 	},
 
 	componentWillMount: function(){
-			// console.log("collection from store", COH_Store.data.collection)
+			console.log("collection from store in componentWillMount", COH_Store.data.collection)
 
-			Actions.fetchWorstReports({FacilityName: "DENNY'S"})
+			// Actions.fetchWorstReports({FacilityName: "DENNY'S"})
+
+			Actions.fetchWorstReports("FacilityName")
 			
 			// Actions.fetchWorstReports(FacilityName: "RACHEL'S SANDWICH SHOP","IBAR  & GRILL","DENNY'S")
 			// Actions.fetchWorstReports(FacilityName: "IBAR  & GRILL")
@@ -32,7 +34,7 @@ const HallOfShame = React.createClass({
 	},
 
 	render: function(){
-		console.log("from hallofshame - collection from store", COH_Store.data.collection)
+		console.log("from hallofshame - collection from store in render", COH_Store.data.collection)
 		return(
 			<div className="shameView">
 
@@ -84,7 +86,7 @@ const ShameContainer = React.createClass({
 const ShameReport = React.createClass({
 
 	render: function(){
-		console.log("from hallofshame - ShameReport", this.props.shameModel)
+		console.log("from hallofshame - ShameReport from shameModel", this.props.shameModel)
 		return(
 			<div>
 				<h3> {this.props.shameModel.get('FacilityName')}</h3>

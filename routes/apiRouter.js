@@ -71,12 +71,12 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       })
     })
 
-    //get the worst - repeat offender
+    // get the worst - repeat offender - working 
     apiRouter.get('/getWorstRated', function(request, response){
       console.log('getting all records')
       Coh_HV.aggregate([
       {  '$match': {'InspectionStatus': 'FAIL'}  },
-      {  '$group': {  _id: '$FacilityFullStreetAddress', "inspectionsFailed":  {"$sum": 1 },   } },
+      {  '$group': {  _id: '$FacilityFullStreetAddress', "inspectionsFailed":  {"$sum": 1 }  } },
       {  '$sort': {  inspectionsFailed: -1 } },
       {  "$limit" : 10 }
       ], function(error, records){ //how to find Coh_HV
@@ -88,6 +88,52 @@ let Coh_HV = require('../db/schema.js').Coh_HV
         }
       })
     })
+
+
+    //get the worst - repeat offender####
+    // apiRouter.get('/getWorstRated', function(request, response){
+    //   console.log('getting all records')
+    //   Coh_HV.aggregate([
+    //   {  '$match': {'InspectionStatus': 'FAIL'}  },
+    //   {  '$group': {  _id: '$FacilityFullStreetAddress', "inspectionsFailed":  {"$sum": 1 },   } },
+    //   {  '$sort': {  inspectionsFailed: -1 } },
+    //   {  "$limit" : 10 }
+    //   ], function(error, records){ //how to find Coh_HV
+    //     if(error){
+    //       response.send(error)
+    //     }
+    //     else{
+    //       response.json(records)
+    //     }
+    //   })
+    // })
+
+    // apiRouter.get('/getWorstRated', function(request, response){
+    //   Coh_HV.aggregate([
+    //     {$group: {_id: {address:'$FacilityFullStreetAddress'}, inspectionsFailed:{ $sum: "$inspectionsFailed"}, {name:'$FacilityName'} }}
+    //     ], function(error, records){
+    //       if(error){
+    //         response.send(error)
+    //       }
+    //       else{
+    //         response.json(records)
+    //       }
+    //     })
+    // })
+
+    // apiRouter.get('/getWorstRated', function(request, response){
+    //   Coh_HV.aggregate([
+    //     {$project:}
+    //     ], function(error, records){
+    //       if(error){
+    //         response.send(error)
+    //       }
+    //       else{
+    //         response.json(records)
+    //       }
+    //     })
+    // })
+
 
     //get the best 
         apiRouter.get('/getBestRated', function(request, response){
