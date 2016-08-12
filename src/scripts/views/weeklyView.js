@@ -49,11 +49,22 @@ const RouletteContainer = React.createClass({
 
 	render: function(){
 		return(
-			<div className="weeklyContainer">
+			<div className="rouletteContainer">
 
-				<h1> The Roach Roulette</h1>
+				<header className="hero">
 
-				<Header />
+					<div className="container-narrow">
+
+						<h1 className="title"> The Roach Roulette</h1>
+
+						<h3 className="subtitle"> Be adventurous, try a new restaurant </h3>
+
+						<Header />
+
+					</div>
+
+				</header>
+
 
 				{this.props.collection.map( (model)=> <RouletteReports rouletteModel={model} key={model.id} />
 
@@ -72,13 +83,35 @@ const RouletteReports = React.createClass({
 		return(
 			<div className="weeklyReports">
 
-				<h3>Name: {this.props.rouletteModel.get('FacilityName') }</h3>
-				<h5>Address: {this.props.rouletteModel.get('FacilityFullStreetAddress') }</h5>
-				<h5>Zip: {this.props.rouletteModel.get('Zip') }</h5>
-				<h5>Cuisine: {this.props.rouletteModel.get('Cuisine') }</h5>
-				<h5>Inspection Date: {this.props.rouletteModel.get('InspectionDate') }</h5>
-				<h5>Inspection Status: {this.props.rouletteModel.get('InspectionStatus') }</h5>
-				<h5>FacilityRiskScore: {this.props.rouletteModel.get('FacilityRiskScore') }</h5>
+				<div className="grid-container">
+
+					<div className="sm-12-x-12 md-4-x-12">
+
+						<figure className="tn-card">
+
+							<figcaption className="title">
+
+								<h3>{this.props.rouletteModel.get('FacilityName') }</h3>
+
+							</figcaption>
+
+							<figcaption className="more-info">
+
+								<h4>{this.props.rouletteModel.get('FacilityFullStreetAddress') }</h4>
+								<h4>{this.props.rouletteModel.get('Zip') }</h4>
+								<h4>Cuisine: {this.props.rouletteModel.get('Cuisine') }</h4>
+								<h4>Inspection Status: {this.props.rouletteModel.get('InspectionStatus') }</h4>
+								<h4>Facility Risk Score: {this.props.rouletteModel.get('FacilityRiskScore') }</h4>
+
+							</figcaption>
+
+						</figure>
+
+					</div>
+
+				</div>
+
+			
 
 				
 			</div>

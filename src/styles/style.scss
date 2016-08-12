@@ -157,7 +157,7 @@ div#navBar{
 
 header.hero{
 	border: solid fuchsia 2px;
-	
+
 
 
 	//background-image: url('../images/beefdish.jpeg');
@@ -177,7 +177,21 @@ header.hero{
 
 }
 
+div.grid-container{
+		margin: 0;
+		// display: inline-block;
 
+		figure{
+			// display: inline-block;
+			width: 265px;
+		}
+
+}
+
+figure,.tn-card{
+	width: 256px;
+	display: inline-block;
+}
 
 
 //+++++++++++++++++++++++++++++++
