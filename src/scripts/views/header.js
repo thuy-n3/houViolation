@@ -26,6 +26,9 @@ const NavBar = React.createClass({
 				<button className="navButton"><a href="#allstars">All Stars</a></button>
 				<button className="navButton"><a href="#search">Search</a></button>
 
+				<button class="btn primary">Margo Button</button>
+				<button class="btn primary">Margo Button</button>
+				
 			</div>
 		)
 	}

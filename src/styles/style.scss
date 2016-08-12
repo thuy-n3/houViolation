@@ -1,7 +1,8 @@
+@import '../../node_modules/margo-css/margo.scss';
+
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
-	font-family: 
 }
 
 h1 {
@@ -20,8 +21,8 @@ h1 {
 		padding: 2%;
 		border-radius: 26%;
 		
-
 	}
+
 	a{
 			text-decoration: none; 
 			font-size: 15px;
@@ -79,5 +80,10 @@ h1 {
 	font-size: 20px;
 
 
+}
 
+button{
+	.btn{
+		font-size: 20px;
+	}
 }
