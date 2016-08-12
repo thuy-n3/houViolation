@@ -63,15 +63,27 @@ const ShameContainer = React.createClass({
 		return(
 			<div className="shameContainer">
 
-				<div className="shameTitle">Hall of Shame</div>
+				<header className="hero">
 
-				<Header />
 
-				<p className="shameIntro">Restaurants who are serial offenders of Health Inspections</p>
 
-				{this.props.worstL.map( (wList)=> <ShameReport shameList={wList} />
+					<div className="container-narrow">
 
-				)}
+						<h1 className="title">Hall of Shame</h1>
+
+						<h3 className="subtitle">Restaurants who are serial offenders of Health Inspections</h3>
+
+						<Header />
+
+					</div>
+
+				</header>
+
+
+
+						{this.props.worstL.map( (wList)=> <ShameReport shameList={wList} />
+
+						)}
 
 			</div>
 		)
@@ -134,8 +146,17 @@ export default HallOfShame
 	// <h5> {this.props.shameList.get('FacilityZip')}</h5>
 
 
+			//<img src="../images/beefdish.jpeg" width="1214.41" height="500"/>
 
 
+				// <div className="shameTitle">Hall of Shame</div>
 
+				// <Header />
+
+				// <p className="shameIntro">Restaurants who are serial offenders of Health Inspections</p>
+
+				// {this.props.worstL.map( (wList)=> <ShameReport shameList={wList} />
+
+				// )}
 
 
