@@ -61,12 +61,13 @@ const ShameContainer = React.createClass({
 
 	render: function(){
 		return(
-			<div>
+			<div className="shameContainer">
 
-				<h1>Hall of Shame</h1>
+				<div className="shameTitle">Hall of Shame</div>
+
 				<Header />
 
-				<h3 className="shameIntro">Restaurants who are serial offenders of Health Inspections</h3>
+				<p className="shameIntro">Restaurants who are serial offenders of Health Inspections</p>
 
 				{this.props.worstL.map( (wList)=> <ShameReport shameList={wList} />
 
@@ -89,12 +90,36 @@ const ShameReport = React.createClass({
 	render: function(){
 		console.log("from hallofshame - ShameReport from shameList", this.props.shameList)
 		return(
-			<div>
+			<div className="shameReport">
 
-				<h3>{this.props.shameList.facilityName}</h3>
-				<h3>{this.props.shameList.facilityAddress}</h3>
-				<h3>{this.props.shameList.facilityZip}</h3>
-				<h3>Inspection Failed: {this.props.shameList.inspectionsFailed}</h3>
+				<div className="grid-container">
+
+					<div className="sm-12-x-12 md-4-x-12">
+
+						<figure className ="tn-card">
+
+							<figcaption className="tn-title txt-center">
+
+								<p>{this.props.shameList.facilityName}</p>
+
+							</figcaption>
+
+							<figcaption className="more-info"/>
+
+							<p>{this.props.shameList.facilityAddress}</p>
+							<p>{this.props.shameList.facilityZip}</p>
+							<p>Inspection Failed: {this.props.shameList.inspectionsFailed}</p>
+
+							<figcaption />
+
+						</figure>
+
+					</div>
+					
+				</div>
+
+
+
 
 
 			</div>
