@@ -38,11 +38,8 @@ const HallOfShame = React.createClass({
 		console.log("from hallofshame - collection from store in render", COH_Store.data.worstList)
 		return(
 			<div className="shameView">
-
-
 			
-				<ShameContainer worstL={this.state.worstList}/>
-
+				<ShameContainer worstL={this.state.worstList} />
 
 			</div>
 		)
@@ -89,7 +86,7 @@ const ShameReport = React.createClass({
 	render: function(){
 		console.log("from hallofshame - ShameReport from shameList", this.props.shameList)
 		return(
-			<div>
+			<div className="shameReport">
 
 				<h3>{this.props.shameList.facilityName}</h3>
 				<h3>{this.props.shameList.facilityAddress}</h3>
@@ -104,9 +101,7 @@ const ShameReport = React.createClass({
 
 export default HallOfShame
 
-	// <h3> {this.props.shameList.get('FacilityName')}</h3>
-	// <h5> {this.props.shameList.get('FacilityFullStreetAddress')}</h5>
-	// <h5> {this.props.shameList.get('FacilityZip')}</h5>
+
 
 
 

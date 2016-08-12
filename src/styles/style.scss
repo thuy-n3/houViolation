@@ -1,3 +1,6 @@
+@import '../../node_modules/margo-css//margo.scss';
+
+
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
@@ -10,74 +13,33 @@ h1 {
 	color: fuchsia;
 }
 
+
+
+
+//====> Margo Styling =================
+
 //header
 
-#navBar {	
+#navBar{
 
-	.navButton {
-		 
-		margin: 2%; 
-		padding: 2%;
-		border-radius: 26%;
-		
+	margin-left: 20%;
+
+	.navB{
+
+		a{
+			font-size: 20px;
+		}
 
 	}
-	a{
-			text-decoration: none; 
-			font-size: 15px;
-		}
-	
-}
 
-//weekly
+}	
 
-.weeklyReports{
-	// border: solid silver 2px;
-	// padding: 2%;
-}
 
-//home 
+//hallofshame
 
-.intro{
-	// border: 2%;
-	// border: solid silver 2px;
-	// padding: 2%;
-	color: fuchsia;
-	text-align: center;
-}
+.shameReport{
 
-.roach{
-	position: relative; 
-	left: 63%; 
-
-}
-
-//allStars 
-
-.starIntro{
-	color: fuchsia; 
-	text-align: center;
+	border: silver solid 5px;
 }
 
 
-//hallOfShame
-
-.shameIntro{
-	color: fuchsia; 
-	text-align: center;
-}
-
-//search 
-
-.searchBox{
-	padding: 2%; 
-	margin: 1%;
-	width:50%;
-	text-align: center;
-	position: relative; 
-	left: 25%;
-	font-size: 20px;
-
-
-
-}
