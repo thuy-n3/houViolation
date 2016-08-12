@@ -13,29 +13,29 @@ h1 {
 
 //header
 
-#navBar {	
+#navBar {
 
-	.navButton {
+
+	.btn {
 		 
-		margin: 2%; 
-		padding: 2%;
-		border-radius: 26%;
+		margin-left: 2%; 
+		position: relative;
+		top: 50%;
+		left: 8%;
+
+
 		
 	}
 
 	a{
 			text-decoration: none; 
-			font-size: 15px;
+			font-size: 20px;
 		}
 	
 }
 
 //weekly
 
-.weeklyReports{
-	// border: solid silver 2px;
-	// padding: 2%;
-}
 
 //home 
 
@@ -82,8 +82,4 @@ h1 {
 
 }
 
-button{
-	.btn{
-		font-size: 20px;
-	}
-}
+
