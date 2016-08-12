@@ -127,8 +127,6 @@ const Actions = {
 				console.log("list of Faileds from actions", listOfFaileds)
 				COH_Store._set('worstList', listOfFaileds)
 			})
-
-
 	},
 
 
