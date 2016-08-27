@@ -69,18 +69,23 @@ const Actions = {
 	// 		})
 	// },
 
-	fetchWorstReports: function(inputQuery){
-		var failedReportsByLocation ={}
 
+//fetch worst report from api route/ fetch full profile of worst report and filter data to render top 10 worst  	
+
+	fetchWorstReports: function(inputQuery){
+
+		var failedReportsByLocation = {}
 
 		$.getJSON("/api/getWorstRated")
 			.then((dbResults)=>{
 
 				dbResults.forEach((location)=>{
 					failedReportsByLocation[location._id] = location.inspectionsFailed
+
 				})
 
 				let listOfAddresses = dbResults.map((failedReport)=>{
+					
 					return failedReport._id
 				})
 
@@ -130,6 +135,120 @@ const Actions = {
 	},
 
 
+// fetch the best report from api router 
+
+
+fetchBestReports: function(inputQuery){
+
+	var passedReportsByLocation = {}
+
+	$.getJSON("/api/getBestRated")
+		.then((dbResults)=>{
+
+			dbResults.forEach((location)=>{
+				passedReportsByLocation[location._id] = location.inspectionsPassed
+			})
+
+			let listOfAddresses = dbResults.map((passedReports)=>{
+
+				return passedReport._id
+			})
+
+			return Actions.fetchReports({
+
+				"FacilityFullStreetAddress": {
+					"$in" : listOfAddresses
+				}, 
+
+				"InpsectionStatus": "PASS"
+			})
+		}).then( (passedReportsFullRecord) =>{
+
+			console.log("passed FullRecord", passedReportsFullRecord)
+			console.log("passed by location", passedReportsByLocation)
+			console.log("address of location passed", passedReportsFullRecord[0].FacilityFullStreetAddress)
+
+			let firstPassedReportAddress = passedReportsFullRecord[0].FacilityFullStreetAddress
+
+			console.log(" # passsed Reports by location with Address", passedReportsByLocation[firstPassedReportAddress])
+
+			var directoryOfRestaurantsThatPassed = {}
+
+			passedReportsFullRecord.forEach( function(record){
+				if( !directoryOfRestaurantsThatPassed[record.FacilityName]){
+					directoryOfRestaurantsThatPassed[record.FacilityName] = {
+						facilityName: records.FacilityName,
+						inspectionsPassed: passedReportsByLocation[record.FacilityFullStreetAddress],
+						facilityAddress: record.FacilityFullStreetAddress, 
+						facilityZip: record.facilityZip
+
+					}
+				}
+			})
+
+			console.log(directoryOfRestaurantsThatPassed)
+
+			let listOfPassed = []
+
+			for(var prop in directoryOfRestaurantsThatPassed){
+				listOfPassed.push(directoryOfRestaurantsThatPassed[prop])
+			}
+
+			console.log("list of Passed from actions", listOfPassed)
+			COH_Store.set('bestList', listOfPassed)
+
+		})
+
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
 	fetchSearchReports: function(inputQuery){
 		//COH_Store.data.
 	},
@@ -142,9 +261,11 @@ const Actions = {
 
 }
 
-export default Actions  
 
 
+
+
+export default Actions 
 // Actions.fetchReports({FacilityName: x? }) --> pass in the data attribute
 
 //fetch from the apiRouter of best or worstRating 

@@ -39,7 +39,6 @@ const HallOfShame = React.createClass({
 		return(
 			<div className="shameView">
 
-
 			
 				<ShameContainer worstL={this.state.worstList}/>
 
@@ -64,8 +63,6 @@ const ShameContainer = React.createClass({
 			<div className="shameContainer">
 
 				<header className="hero">
-
-
 
 					<div className="container-narrow">
 
@@ -116,13 +113,13 @@ const ShameReport = React.createClass({
 
 							</figcaption>
 
-							<figcaption className="more-info"/>
+							<figcaption className="more-info">
 
 							<p>{this.props.shameList.facilityAddress}</p>
 							<p>{this.props.shameList.facilityZip}</p>
 							<p>Inspection Failed: {this.props.shameList.inspectionsFailed}</p>
 
-							<figcaption />
+							</figcaption>
 
 						</figure>
 

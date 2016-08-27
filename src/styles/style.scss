@@ -140,6 +140,7 @@ h1 {
 		border: solid fuchsia 2px;
 		background-color: #ecf0f1;
 		opacity: 1;
+		display: inline-block;
 
 
 		p{
@@ -179,7 +180,8 @@ header.hero{
 
 div.grid-container{
 		margin: 0;
-		// display: inline-block;
+		display: inline-block;
+		border: green solid 2px;
 
 		figure{
 			// display: inline-block;
@@ -188,10 +190,10 @@ div.grid-container{
 
 }
 
-figure,.tn-card{
-	width: 256px;
-	display: inline-block;
-}
+// figure,.tn-card{
+// 	width: 256px;
+// 	display: inline-block;
+// }
 
 
 //+++++++++++++++++++++++++++++++
@@ -243,4 +245,45 @@ figure,.tn-card{
 
 // }
 
+
+
+//====== weekly | Roulette ===================
+
+.rouletteContainer{
+	max-width: 100%;
+	margin: 2%; 
+
+	.rouletteTitle{
+		top:50%;
+		left: 0%;
+		position: relative;
+		font-size: 86px;
+		color: fuchsia;
+		font-family: 'PT Serif Caption', serif;
+	}
+
+	.subtitle{
+		margin-left: 23%;
+		padding-top: 2%;
+	}
+
+	.rouletteReports{
+		// border: solid green 2px;
+		display: inline-block;
+		width: 33%;
+
+		div.grid-container{
+			border: solid green 2px;
+			margin: 0;
+
+			figure{
+				width: 265px;
+			}
+		}
+	}
+
+	
+	
+
+}
 

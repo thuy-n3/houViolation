@@ -55,7 +55,7 @@ const RouletteContainer = React.createClass({
 
 					<div className="container-narrow">
 
-						<h1 className="title"> The Roach Roulette</h1>
+						<h1 className="rouletteTitle"> The Roach Roulette</h1>
 
 						<h3 className="subtitle"> Be adventurous, try a new restaurant </h3>
 
@@ -76,12 +76,54 @@ const RouletteContainer = React.createClass({
 
 })
 
+
+// const RouletteReports = React.createClass({
+
+// 	render: function(){
+// 			console.log("from weeklyReport", this.props.rouletteModel)
+// 		return(
+
+// 			<div className="weeklyReports">
+
+// 				<div className="grid-container">
+
+// 					<div className="sm-12-x-12 md-4-x-12">
+
+// 						<figure className="tn-card">
+
+// 							<figcaption className="tn-title txt-center">
+
+// 								<p>{this.props.rouletteModel.get('FacilityName') }</p>
+
+// 							</figcaption>
+
+// 							<figcaption className="more-info">
+
+// 								<h4>{this.props.rouletteModel.get('FacilityFullStreetAddress') }</h4>
+// 								<h4>{this.props.rouletteModel.get('Zip') }</h4>
+// 								<h4>Cuisine: {this.props.rouletteModel.get('Cuisine') }</h4>
+// 								<h4>Inspection Status: {this.props.rouletteModel.get('InspectionStatus') }</h4>
+// 								<h4>Facility Risk Score: {this.props.rouletteModel.get('FacilityRiskScore') }</h4>
+
+// 							</figcaption>
+
+// 						</figure>
+
+// 					</div>
+
+// 				</div>
+				
+// 			</div>
+// 		)
+// 	}
+// })
+
+
 const RouletteReports = React.createClass({
 
 	render: function(){
-			console.log("from weeklyReport", this.props.rouletteModel)
 		return(
-			<div className="weeklyReports">
+			<div className="rouletteReports">
 
 				<div className="grid-container">
 
@@ -89,30 +131,27 @@ const RouletteReports = React.createClass({
 
 						<figure className="tn-card">
 
-							<figcaption className="title">
-
-								<h3>{this.props.rouletteModel.get('FacilityName') }</h3>
+							<figcaption className="tn-title txt-center">
+								
+								<p>{this.props.rouletteModel.get('FacilityName') }</p>
 
 							</figcaption>
 
 							<figcaption className="more-info">
-
-								<h4>{this.props.rouletteModel.get('FacilityFullStreetAddress') }</h4>
-								<h4>{this.props.rouletteModel.get('Zip') }</h4>
-								<h4>Cuisine: {this.props.rouletteModel.get('Cuisine') }</h4>
-								<h4>Inspection Status: {this.props.rouletteModel.get('InspectionStatus') }</h4>
-								<h4>Facility Risk Score: {this.props.rouletteModel.get('FacilityRiskScore') }</h4>
+								
+								<p>{this.props.rouletteModel.get('FacilityFullStreetAddress') }</p>
+								<p>{this.props.rouletteModel.get('FacilityZip') }</p>
+								<p>Cuisine: {this.props.rouletteModel.get('Cuisine') }</p>
+								<p>Inspection Status: {this.props.rouletteModel.get('InspectionStatus') }</p>
+								<p>Facility Risk Score: {this.props.rouletteModel.get('FacilityRiskScore') }</p>
 
 							</figcaption>
 
 						</figure>
 
 					</div>
-
+					
 				</div>
-
-			
-
 				
 			</div>
 		)
