@@ -124,7 +124,9 @@ const Actions = {
 					}
 				})
 
-				console.log(directoryOfRestaurantsThatFailed)
+
+				console.log("directory of Restaurant that failed",directoryOfRestaurantsThatFailed)
+
 				let listOfFaileds = []
 				for (var prop in directoryOfRestaurantsThatFailed){
 					listOfFaileds.push(directoryOfRestaurantsThatFailed[prop])
@@ -172,15 +174,39 @@ const Actions = {
 
 			let firstPassedReportAddress = passedReportsFullRecords[0].FacilityFullStreetAddress
 
+			console.log("firstPassedReportAddress",firstPassedReportAddress)
 			console.log("#passed Reports by location with Address", passedReportsByLocation[firstPassedReportAddress])
+
 
 			var directoryOfRestaurantsThatPassed = {}
 
 			passedReportsFullRecords.forEach( function(record){
-
+				if( !directoryOfRestaurantsThatPassed[record.FacilityName]){
+					directoryOfRestaurantsThatPassed[record.FacilityName]= {
+						facilityName:record.FacilityName,
+						inspectionsPassed: passedReportsByLocation[record.FacilityFullStreetAddress],
+						facilityAddress: record.FacilityFullStreetAddress,
+						facilityZip: record.FacilityZip
+					}
+				}
 			})
 
-			console.log(directoryOfRestaurantsThatPassed)
+
+			// passedReportsFullRecords.forEach( function(record){
+			// 	if( !directoryOfRestaurantsThatPassed[record.FacilityName] ){
+			// 		directoryOfRestaurantsThatPassed[record.facilityName] = {
+			// 			facilityName: record.FacilityName, 
+			// 			inspectionsPassed: passedReportsByLocation[record.FacilityFullStreetAddress],
+			// 			facilityAddress: record.FacilityFullStreetAddress, 
+			// 			facilityZip: record.FacilityZip
+
+			// 		}
+			// 	}
+
+			// })
+
+
+			console.log("directory of Restaurants that passed",directoryOfRestaurantsThatPassed)
 
 			let listOfPassed = []
 			for(var prop in directoryOfRestaurantsThatPassed){
@@ -188,6 +214,7 @@ const Actions = {
 			}
 
 			console.log("list of Passed from actions", listOfPassed)
+
 
 			COH_Store._set('bestList', listOfPassed)
 
