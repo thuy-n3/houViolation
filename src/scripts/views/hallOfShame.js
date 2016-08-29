@@ -15,14 +15,7 @@ const HallOfShame = React.createClass({
 	componentWillMount: function(){
 			console.log("hallofShame - collection from store in componentWillMount", COH_Store.data.collection)
 
-			// Actions.fetchWorstReports({FacilityName: "DENNY'S"})
-
 			Actions.fetchWorstReports()
-
-			
-			// Actions.fetchWorstReports(FacilityName: "RACHEL'S SANDWICH SHOP","IBAR  & GRILL","DENNY'S")
-			// Actions.fetchWorstReports(FacilityName: "IBAR  & GRILL")
-			// Actions.fetchWorstReports(FacilityName: "DENNY'S")
 
 			COH_Store.on('updateContent', ()=> { 
 				this.setState(COH_Store._getData())
@@ -36,6 +29,8 @@ const HallOfShame = React.createClass({
 
 	render: function(){
 		console.log("from hallofshame - collection from store in render", COH_Store.data.worstList)
+		//array of objects - each obj is each restaurant profile
+
 		return(
 			<div className="shameView">
 
@@ -98,6 +93,8 @@ const ShameReport = React.createClass({
 
 	render: function(){
 		console.log("from hallofshame - ShameReport from shameList", this.props.shameList)
+		//this is what you pull to render to page below in props of each restaurant profile 
+
 		return(
 			<div className="shameReport">
 

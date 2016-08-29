@@ -135,10 +135,11 @@ const Actions = {
 	},
 
 
+
 // fetch the best report from api router 
 
-
-fetchBestReports: function(inputQuery){
+	
+	fetchBestReports: function(inputQuery){
 
 	var passedReportsByLocation = {}
 
@@ -149,7 +150,7 @@ fetchBestReports: function(inputQuery){
 				passedReportsByLocation[location._id] = location.inspectionsPassed
 			})
 
-			let listOfAddresses = dbResults.map((passedReports)=>{
+			let listOfAddresses = dbResults.map((passedReport)=>{
 
 				return passedReport._id
 			})
@@ -158,95 +159,41 @@ fetchBestReports: function(inputQuery){
 
 				"FacilityFullStreetAddress": {
 					"$in" : listOfAddresses
-				}, 
+				},
 
-				"InpsectionStatus": "PASS"
+				"InspectionStatus": "PASS"
 			})
-		}).then( (passedReportsFullRecord) =>{
+		}).then((passedReportsFullRecords)=>{
 
-			console.log("passed FullRecord", passedReportsFullRecord)
+			console.log("passed fullReport", passedReportsFullRecords)
 			console.log("passed by location", passedReportsByLocation)
-			console.log("address of location passed", passedReportsFullRecord[0].FacilityFullStreetAddress)
+			console.log("address of location of passed", passedReportsFullRecords[0].FacilityFullStreetAddress)
 
-			let firstPassedReportAddress = passedReportsFullRecord[0].FacilityFullStreetAddress
 
-			console.log(" # passsed Reports by location with Address", passedReportsByLocation[firstPassedReportAddress])
+			let firstPassedReportAddress = passedReportsFullRecords[0].FacilityFullStreetAddress
+
+			console.log("#passed Reports by location with Address", passedReportsByLocation[firstPassedReportAddress])
 
 			var directoryOfRestaurantsThatPassed = {}
 
-			passedReportsFullRecord.forEach( function(record){
-				if( !directoryOfRestaurantsThatPassed[record.FacilityName]){
-					directoryOfRestaurantsThatPassed[record.FacilityName] = {
-						facilityName: records.FacilityName,
-						inspectionsPassed: passedReportsByLocation[record.FacilityFullStreetAddress],
-						facilityAddress: record.FacilityFullStreetAddress, 
-						facilityZip: record.facilityZip
+			passedReportsFullRecords.forEach( function(record){
 
-					}
-				}
 			})
 
 			console.log(directoryOfRestaurantsThatPassed)
 
 			let listOfPassed = []
-
 			for(var prop in directoryOfRestaurantsThatPassed){
 				listOfPassed.push(directoryOfRestaurantsThatPassed[prop])
 			}
 
 			console.log("list of Passed from actions", listOfPassed)
-			COH_Store.set('bestList', listOfPassed)
+
+			COH_Store._set('bestList', listOfPassed)
 
 		})
+	},
 
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////
 
 
 	fetchSearchReports: function(inputQuery){
@@ -260,7 +207,6 @@ fetchBestReports: function(inputQuery){
 
 
 }
-
 
 
 
