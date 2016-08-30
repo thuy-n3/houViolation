@@ -9,7 +9,9 @@
 // font-family: 'PT Serif Caption', serif;
 // font-family: 'Martel', serif;
 
-//general
+
+
+//====== general styling =============================
 
 * {
 	// font-family: Helvetica, Arial, sans-serif;
@@ -20,14 +22,13 @@
 }
 
 
-
 h1 {
 	font-size: 68px;
 	text-align: center;
 	color: fuchsia;
 }
 
-//header
+//====== header ======================================
 
 #navBar {
 
@@ -50,7 +51,7 @@ h1 {
 	
 }
 
-//homeView
+//====== hone view ====================================
 
 
 
@@ -93,8 +94,7 @@ h1 {
 	}
 }
 
-
-//hallofshame
+//====== hall of shame ===============================
 
 .shameContainer{
 
@@ -247,7 +247,7 @@ div.grid-container{
 
 
 
-//====== weekly | Roulette ===================
+//====== weekly | Roulette ========================
 
 .rouletteContainer{
 	max-width: 100%;
@@ -282,8 +282,96 @@ div.grid-container{
 		}
 	}
 
-	
-	
 
 }
+
+//====== allStars ========================
+
+.allStarsContainer{
+
+	max-width: 100%;
+	margin: 2%;
+
+	background-image: url('../images/beefdish.jpeg');
+	background-size: 2000px;
+
+
+	// border: solid green 2px;
+
+	.starTitle{
+		
+		top:20%;
+		left: 22%;
+		position: relative;
+		font-size: 86px;
+		color: fuchsia;
+		font-family: 'PT Serif Caption', serif;
+		
+	}
+
+
+}
+
+
+.allStarsReport{
+	display: inline-block;
+	width: 33%;
+
+	figure, .tn-card{
+		width: 265px;
+		margin-left: 50%;
+		padding-left: 12%;
+		border: solid fuchsia 2px;
+		background-color: #ecf0f1;
+		opacity: 1;
+		display: inline-block;
+
+
+		p{
+			margin: 0;
+		}
+	}
+
+}
+
+
+div#navBar{
+	margin-left: -9%;
+
+}
+
+header.hero{
+	border: solid fuchsia 2px;
+
+
+
+	//background-image: url('../images/beefdish.jpeg');
+}
+
+.hero{
+
+	.title{
+
+			}
+	.subtitle{
+		margin-left: 5%;
+		padding-top: 2%;
+
+	}
+
+
+}
+
+div.grid-container{
+		margin: 0;
+		display: inline-block;
+		border: green solid 2px;
+
+		figure{
+			// display: inline-block;
+			width: 265px;
+		}
+
+}
+
 

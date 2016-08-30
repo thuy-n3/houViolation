@@ -13,7 +13,7 @@ const COH_Store = _.extend( Backbone.Events, {
 		collection: new CohCollection(), //make new instance of CohCollection
 		worstList: [],
 		bestList: []
-		// worstCollection: new CohColle	ction(listOfFaileds)
+		// worstCollection: new CohCollction(listOfFaileds)
 	}, 
 
 	_emitChange: function(){

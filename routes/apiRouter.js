@@ -140,7 +140,7 @@ let Coh_HV = require('../db/schema.js').Coh_HV
       console.log('getting all records')
       Coh_HV.aggregate([
       {  '$match': {'InspectionStatus': 'PASS'}  },
-      {  '$group': {  _id: '$FacilityFullStreetAddress', "inspectionsPassed":  {"$sum": 1 },   } },
+      {  '$group': {  _id:  '$FacilityFullStreetAddress', "inspectionsPassed":  {"$sum": 1 },   } },
       {  '$sort': {  inspectionsPassed: -1 } },
       {  "$limit" : 10}
       ], function(error, records){ //how to find Coh_HV

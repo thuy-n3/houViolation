@@ -119,7 +119,8 @@ const Actions = {
 							facilityName: record.FacilityName,
 							inspectionsFailed: failedReportsByLocation[record.FacilityFullStreetAddress],
 							facilityAddress: record.FacilityFullStreetAddress, 
-							facilityZip: record.FacilityZip
+							facilityZip: record.FacilityZip,
+							cuisine: record.Cuisine
 						}
 					}
 				})
@@ -186,7 +187,8 @@ const Actions = {
 						facilityName:record.FacilityName,
 						inspectionsPassed: passedReportsByLocation[record.FacilityFullStreetAddress],
 						facilityAddress: record.FacilityFullStreetAddress,
-						facilityZip: record.FacilityZip
+						facilityZip: record.FacilityZip,
+						cuisine: record.Cuisine
 					}
 				}
 			})

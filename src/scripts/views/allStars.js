@@ -35,9 +35,6 @@ const AllStars = React.createClass({
 		return(
 			<div className="allStarView">
 
-
-				<h1>Hall of AllStars</h1>
-
 				<AllStarsContainer bestL={this.state.bestList} />
 
 
@@ -57,7 +54,7 @@ const AllStarsContainer = React.createClass({
 					
 					<div className="container-narrow">
 						
-						<h1 className="title"> Hall of All Stars </h1>
+						<h1 className="starTitle"> Hall of All Stars </h1>
 
 						<h3 className="subtitle"> Restaurants repeatly pass their inspection report with flying colors </h3>
 
@@ -95,9 +92,13 @@ const AllStarsReport = React.createClass({
 
 							</figcaption>
 
+							<figcaption className="more-info">
+
 							<p>{this.props.bestList.facilityAddress}</p>
 							<p>{this.props.bestList.facilityZip}</p>
-							<p>Inspection Passed: {this.props.bestList.inspectionsPassed}</p>
+							<p>Cuisine: {this.props.bestList.cuisine}</p>
+							
+							</figcaption>
 
 						</figure>
 
@@ -112,9 +113,10 @@ const AllStarsReport = React.createClass({
 })
 
 
-
-
 export default AllStars
+
+
+//<p>Inspection Passed: {this.props.bestList.inspectionsPassed}</p>
 
 
 //<Header />

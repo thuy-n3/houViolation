@@ -114,6 +114,7 @@ const ShameReport = React.createClass({
 
 							<p>{this.props.shameList.facilityAddress}</p>
 							<p>{this.props.shameList.facilityZip}</p>
+							<p>Cuisine: {this.props.shameList.cuisine}</p>
 							<p>Inspection Failed: {this.props.shameList.inspectionsFailed}</p>
 
 							</figcaption>
@@ -123,10 +124,6 @@ const ShameReport = React.createClass({
 					</div>
 					
 				</div>
-
-
-
-
 
 			</div>
 		)
