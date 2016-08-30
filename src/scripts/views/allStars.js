@@ -5,36 +5,7 @@ import {CohCollection, ReportModel} from '../models/models'
 import $ from 'jquery'
 import Header from './header'
 
-const AllStars = React.createClass({
-
-	getInitialState: function(){
-		console.log("allStars - collection from store", COH_Store.data.collection)
-		return COH_Store._getData()
-	},
-
-	componentWillMount: function(){
-		console.log("allStars - collection frmom store in componentWillMount", COH_Store.data.collection)
-		
-		Actions.fetchBestReports()
-
-		COH_Store.on('updateContent', ()=>{
-			this.setState(COH_Store._getData())
-		})
-	},
-
-	componentWillUnMount: function(){
-		COH_Store.off('updateContent')
-	},
-
-	render: function(){
-		return(
-			<div className="starView">
-				
-
-			</div>
-		)
-	}
-
+//const AllStars = React.createClass({
 
 // 	getInitialState: function(){
 // 		console.log("collection from store", COH_Store.data.collection)
@@ -137,9 +108,40 @@ const AllStars = React.createClass({
 // 		)
 // 	}
 
+//})
+
+
+const AllStars = React.createClass({
+
+	getInitialState: function(){
+		console.log("collection from store", COH_Store.data.collection)
+		return COH_Store._getData
+	}, 
+
+	componentWillUnMount: function(){
+		console.log("hallOfShame - collection from store in ")
+
+		Actions.fetchBestReports()
+
+		COH_Store.on('updateContent', ()=>{
+			this.setState(COH_Store._getData())
+		})
+	}, 
+
+	componentWillUnMount: function(){
+		COH_Store.off('updateContent')
+	}, 
+
+	render: function(){
+		return(
+			<div className="allStarsView">
+				
+				<StarContainer bestL={this.state.bestList} />
+
+			</div>
+		)
+	}
 })
-
-
 
 
 export default AllStars

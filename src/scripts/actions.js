@@ -191,7 +191,6 @@ const Actions = {
 				}
 			})
 
-
 			// passedReportsFullRecords.forEach( function(record){
 			// 	if( !directoryOfRestaurantsThatPassed[record.FacilityName] ){
 			// 		directoryOfRestaurantsThatPassed[record.facilityName] = {
@@ -214,8 +213,6 @@ const Actions = {
 			}
 
 			console.log("list of Passed from actions", listOfPassed)
-
-
 			COH_Store._set('bestList', listOfPassed)
 
 		})
