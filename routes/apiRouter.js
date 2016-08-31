@@ -61,7 +61,7 @@ let Coh_HV = require('../db/schema.js').Coh_HV
 
     apiRouter.get('/getByName', function(request, response){
       console.log('getting all records')
-      Coh_HV.find(request.query).limit(100).exec(function(error, records){ //how to find Coh_HV
+      Coh_HV.find(request.query).limit(1000).exec(function(error, records){ //how to find Coh_HV
         if(error){
           response.send(error)
         }

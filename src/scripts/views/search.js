@@ -30,57 +30,111 @@ const SearchView = React.createClass({
 
 	// },
 
+	getInitialState: function(){
+			console.log("search - collection from store", COH_Store.data.collection)
+		return COH_Store._getData()
+	}, 
+
+
+	componentWillMount: function(queryRestaurants){
+
+
+		Actions.fetchSearchReports(queryRestaurants)
+		console.log(" search - componentWillMount", Actions.fetchSearchReports(queryRestaurants))
+
+		COH_Store.on('updateContent', ()=>{
+			this.setState(COH_Store._getData())
+		})
+
+	},
+
+
+	componentWillUnMount: function(){
+		COH_Store.off('updateContent')
+	},
+
+
+
+
 	render: function(){
 		return(
 			<div className="viewAll">
 
-				<h1>Search For Roaches</h1>
-
-				<Header />
-
-				<input className="searchBox" type="text" placeholder="Enter Restaurant Name"></input>
-
-				 {/* <ReportContainer collection={this.state.collection} /> */}
+				 <RestaurantsContainer restColl={this.state.collection}/>
 
 			</div>
 		)
 	}
 })
 
-// const ReportContainer = React.createClass({
 
-// 	render: function(){
+const RestaurantsContainer = React.createClass({
+
+
+	_handleSearch: function(evt){
+		if(evt.keyCode === 13){
+			console.log(evt.target.value)
+			Actions.fetchSearchReports(evt.target.value)
+			evt.target.value = ''
+		}
+	},
+
+
+	render: function(){
+		return(
+			<div>
+				
+				<h1>Search For Roaches</h1>
+
+				<Header />
+
+
+				<input onKeyDown={this._handleSearch} className="searchBox" type="text" placeholder="Enter Restaurant Name" />
+
+				 
+
+			</div>
+		)
+	}
+})
+
+
+
+
+/*const ReportContainer = React.createClass({
+
+	render: function(){
 		
-// 		return(
-// 			<div className="reportContainer">
+		return(
+			<div className="reportContainer">
 
-// 				<h1>Search The Roach Report</h1>
+				<h1>Search The Roach Report</h1>
 
 
 
-// 				{this.props.collection.map(	(model)=> <Reports reportsModel={model} key={model.id}/> 
+				{this.props.collection.map(	(model)=> <Reports reportsModel={model} key={model.id}/> 
 
-// 				)}
+				)}
 
-// 			</div>
-// 		)
-// 	}
-// })
+			</div>
+		)
+	}
+})
 
-// const Reports = React.createClass({
+const Reports = React.createClass({
 
-// 	render: function(){
-// 		// console.log("from Report", this.props.reportsModel)
-// 		return (
-// 			<div className="reports">
+	render: function(){
+		// console.log("from Report", this.props.reportsModel)
+		return (
+			<div className="reports">
 
 				
-// 				<h3>Name: {this.props.reportsModel.get('FacilityName')}</h3>
+				<h3>Name: {this.props.reportsModel.get('FacilityName')}</h3>
 
 
-// 			</div>
-// 		)
-// 	}
-// })
+			</div>
+		)
+	}
+})*/
 
 export default SearchView 

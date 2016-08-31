@@ -7,7 +7,7 @@ import Header from './header'
 
 const HallOfShame = React.createClass({
 
-		getInitialState: function(){
+	getInitialState: function(){
 		console.log("collection from store", COH_Store.data.collection)
 		return COH_Store._getData()
 	},

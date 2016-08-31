@@ -15,12 +15,6 @@ const Actions = {
 		})
 	}, 
 
-	fetchWeeklyReports: function(inputQuery){
-		
-		return COH_Store.data.collection.fetch({
-			data: inputQuery || {}
-		})
-	},
 
 	// fetchWorstReports: function(inputQuery){
 	// 	// COH_Store.data.collection.url = '/api/getWorstRated'
@@ -223,13 +217,27 @@ const Actions = {
 
 
 	fetchSearchReports: function(inputQuery){
-		//COH_Store.data.
+
+		return COH_Store.data.collection.fetch({
+			data: inputQuery || {}
+		})
+	
+	},
+	
+
+	fetchWeeklyReports: function(inputQuery){ 	//ROACH ROULETTE FETCH @ RANDOM 
+		
+		return COH_Store.data.collection.fetch({
+			data: inputQuery || {}
+		})
+
+
 	},
 
 	
 	updateView: function(viewString){
 		COH_Store.set('viewType', viewString)
-	}
+	} 
 
 
 }
