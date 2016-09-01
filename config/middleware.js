@@ -25,8 +25,44 @@ const cookifyUser = function(req,res,next) {
   }
 }
 
+
+//=======search Regex
+
+const handleRegEx = function(req,res,next) {
+    if (req.query) {
+        for (let key in req.query) {
+            let keyParts = key.split('__')
+            if (keyParts.length > 1 && keyParts[0] === 'regex') {
+                var targetKey = key
+                var val = req.query[key]
+                req.query[keyParts[1]] = new RegExp(val,'gi')
+            }
+        }
+        delete req.query[targetKey]
+    }
+    console.log(req.query)
+    next()
+}
+
+const parseQuery = function(req,res,next) {
+  if (req.query) {
+    for (var prop in req.query) {
+      if (prop[0] === '$') {
+        let val = req.query[prop]
+        req.query[prop] = JSON.parse(val)
+      }
+    }
+  }
+  next()
+}
+
+
+
+
 module.exports = {
   checkAuth: checkAuth,
   errorHandler: errorHandler,
-  cookifyUser: cookifyUser
+  cookifyUser: cookifyUser,
+  parseQuery: parseQuery,
+  handleRegEx: handleRegEx
 }

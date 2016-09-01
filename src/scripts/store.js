@@ -12,7 +12,8 @@ const COH_Store = _.extend( Backbone.Events, {
 
 		collection: new CohCollection(), //make new instance of CohCollection
 		worstList: [],
-		bestList: []
+		bestList: [], 
+		//searchCollection: new CohCollection()
 
 		// worstCollection: new CohCollction(listOfFaileds)
 	}, 

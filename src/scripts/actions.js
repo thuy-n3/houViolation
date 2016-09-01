@@ -216,14 +216,26 @@ const Actions = {
 
 
 
-	fetchSearchReports: function(inputQuery){
+	fetchSearch: function(queryObj){
+		// return COH_Store.data.collection.fetch({
+		// 	data: {
+		// 		restaurants: inputQuery 
+		// 	}
+		// }).then(()=> {
+		// 	COH_Store.set("rsColl", collection)
+		// })
 
-		return COH_Store.data.collection.fetch({
-			data: inputQuery || {}
-		})
-	
+		
+		return COH_Store.data.collection.fetch(
+			{
+				data: queryObj
+			}
+
+		)
 	},
+
 	
+
 
 	fetchWeeklyReports: function(inputQuery){ 	//ROACH ROULETTE FETCH @ RANDOM 
 		
