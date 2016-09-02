@@ -61,7 +61,8 @@ const ShameContainer = React.createClass({
 
 					<div className="container-narrow">
 
-						<h1 className="title">Hall of Shame</h1>
+						<h1 className="shameTitle">Hall of Shame</h1>
+     
 
 						<h3 className="subtitle">Restaurants who are serial offenders of Health Inspections</h3>
 

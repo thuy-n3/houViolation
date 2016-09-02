@@ -57,11 +57,6 @@ h1 {
 
 .homeContainer{
 
-	// border: solid silver 5px;
-
-	// background-image-image: url('../../images/pizza.jpeg');
-	
-
 	max-width: 80%;
 
 	margin-left: 12%;
@@ -110,12 +105,11 @@ h1 {
 	.shameTitle{
 		
 		top:20%;
-		left: 22%;
+		left: 0%;
 		position: relative;
 		font-size: 86px;
 		color: fuchsia;
 		font-family: 'PT Serif Caption', serif;
-		
 		
 	}
 
@@ -152,16 +146,12 @@ h1 {
 
 
 div#navBar{
-	margin-left: -9%;
+	margin-left: -4%;
 
 }
 
 header.hero{
 	border: solid fuchsia 2px;
-
-
-
-	//background-image: url('../images/beefdish.jpeg');
 }
 
 .hero{
@@ -181,7 +171,7 @@ header.hero{
 div.grid-container{
 		margin: 0;
 		display: inline-block;
-		border: green solid 2px;
+		// border: green solid 2px;
 
 		figure{
 			// display: inline-block;
@@ -190,68 +180,16 @@ div.grid-container{
 
 }
 
-// figure,.tn-card{
-// 	width: 256px;
-// 	display: inline-block;
-// }
-
-
-//+++++++++++++++++++++++++++++++
-
-// //weekly
-
-
-// //home 
-
-
-
-// //allStars 
-
-// .starIntro{
-// 	color: fuchsia; 
-// 	text-align: center;
-// }
-
-// .homeView{
-// 	border: solid gray 5px;
-// 	max-height: 100%;
-// 	top: 5%
-// }
-
-// .container-narrow{
-// 	border:solid gray 5px;
-	
-// }
-
-// //hallOfShame
-
-// .shameIntro{
-// 	color: fuchsia; 
-// 	text-align: center;
-
-// }
-
-// //search 
-
-// .searchBox{
-// 	padding: 2%; 
-// 	margin: 1%;
-// 	width:50%;
-// 	text-align: center;
-// 	position: relative; 
-// 	left: 25%;
-// 	font-size: 20px;
-
-
-// }
-
-
 
 //====== weekly | Roulette ========================
 
 .rouletteContainer{
 	max-width: 100%;
 	margin: 2%; 
+
+	background-image: url('../images/fries.jpeg');
+	background-size: 1800px;
+
 
 	.rouletteTitle{
 		top:50%;
@@ -273,11 +211,12 @@ div.grid-container{
 		width: 33%;
 
 		div.grid-container{
-			border: solid green 2px;
+			// border: solid green 2px;
 			margin: 0;
 
 			figure{
 				width: 265px;
+				background-color: #ecf0f1;
 			}
 		}
 	}
@@ -289,11 +228,13 @@ div.grid-container{
 
 .allStarsContainer{
 
+
+
 	max-width: 100%;
 	margin: 2%;
 
-	background-image: url('../images/beefdish.jpeg');
-	background-size: 2000px;
+	background-image: url('../images/pasta.jpeg');
+	background-size: 2100px;
 
 
 	// border: solid green 2px;
@@ -301,7 +242,7 @@ div.grid-container{
 	.starTitle{
 		
 		top:20%;
-		left: 22%;
+		left: 0%;
 		position: relative;
 		font-size: 86px;
 		color: fuchsia;
@@ -311,6 +252,12 @@ div.grid-container{
 
 
 }
+
+	.hero .subtitle {
+		color:silver;
+		font-size: 26px;
+		text-align: center;
+	}
 
 
 .allStarsReport{
@@ -335,13 +282,12 @@ div.grid-container{
 }
 
 
-div#navBar{
-	margin-left: -9%;
 
-}
 
 header.hero{
-	border: solid fuchsia 2px;
+	//border: solid fuchsia 2px;
+	background: rgba(0, 0, 0, 0.5);
+
 
 
 
@@ -365,7 +311,7 @@ header.hero{
 div.grid-container{
 		margin: 0;
 		display: inline-block;
-		border: green solid 2px;
+		// border: green solid 2px;
 
 		figure{
 			// display: inline-block;
@@ -376,11 +322,49 @@ div.grid-container{
 
 //====== search ========================
 
+.searchView{
+
+
+	max-width: 100%;
+	margin: 2%;
+
+	background-image: url('../images/shrimp.jpeg');
+	background-size: 1800px;
+
+
+	// border: solid green 2px;
+
+	.searchTitle{
+		
+		top:20%;
+		left: 5%;
+		position: relative;
+		font-size: 78px;
+		color: fuchsia;
+		font-family: 'PT Serif Caption', serif;
+		
+	}
+
+	
+
+}
+
+
+
 .searchBox{
 
-	height: 70px;
-	width: 300px;
-	border: green solid 5px;
-	
+	height: 50px;
+	width: 500px;
+	border: solid 2px fuchsia;
+	padding: 3%;
+	font-size: 20px;
+
 }
+
+input.searchBox{
+	margin: 15%;
+	margin-left: 30%;
+}
+
+
 

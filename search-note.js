@@ -38,9 +38,7 @@ const SearchView = React.createClass({
 	componentWillMount: function(searchQuery){
 
 
-		Actions.fetchSearch(searchQuery)
-		console.log(" search - componentWillMount", Actions.fetchSearch(searchQuery))
-
+		
 		COH_Store.on('updateContent', ()=>{
 			this.setState(COH_Store._getData())
 		})
