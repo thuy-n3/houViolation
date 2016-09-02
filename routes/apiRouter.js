@@ -49,7 +49,7 @@ let Coh_HV = require('../db/schema.js').Coh_HV
     //get all - see viewAll
     apiRouter.get('/getReports', function(request, response){
       console.log('getting all records')
-      Coh_HV.find(request.query).limit(1000).exec(function(error, records){ //how to find Coh_HV
+      Coh_HV.find(request.query).limit(30).exec(function(error, records){ //how to find Coh_HV
         if(error){
           response.send(error)
         }
