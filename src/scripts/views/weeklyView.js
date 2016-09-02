@@ -142,7 +142,7 @@ const RouletteReports = React.createClass({
 								<p>{this.props.rouletteModel.get('FacilityFullStreetAddress') }</p>
 								<p>{this.props.rouletteModel.get('FacilityZip') }</p>
 								<p>Cuisine: {this.props.rouletteModel.get('Cuisine') }</p>
-								<p>Inspection Status: {this.props.rouletteModel.get('InspectionStatus') }</p>
+	
 								<p>Facility Risk Score: {this.props.rouletteModel.get('FacilityRiskScore') }</p>
 
 							</figcaption>
