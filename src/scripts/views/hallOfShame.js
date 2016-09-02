@@ -15,7 +15,7 @@ const HallOfShame = React.createClass({
 	componentWillMount: function(){
 			console.log("hallofShame - collection from store in componentWillMount", COH_Store.data.collection)
 
-			Actions.fetchWorstReports()
+		
 
 			COH_Store.on('updateContent', ()=> { 
 				this.setState(COH_Store._getData())

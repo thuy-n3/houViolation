@@ -28,6 +28,10 @@ h1 {
 	color: fuchsia;
 }
 
+p{
+	font-size: 15px;
+}
+
 //====== header ======================================
 
 #navBar {
@@ -190,6 +194,9 @@ div.grid-container{
 	background-image: url('../images/fries.jpeg');
 	background-size: 1800px;
 
+	.tn-card{
+		border: solid fuchsia 2px;
+	}
 
 	.rouletteTitle{
 		top:50%;
@@ -203,6 +210,10 @@ div.grid-container{
 	.subtitle{
 		margin-left: 23%;
 		padding-top: 2%;
+	}
+
+	.tn-title{
+		font-family: 'Martel', serif;
 	}
 
 	.rouletteReports{
