@@ -66,7 +66,7 @@ const ShameContainer = React.createClass({
 
 						<h3 className="subtitle">Restaurants who are serial offenders of Health Inspections</h3>
 
-						<Header />
+						<Header className="searchNav" />
 
 					</div>
 
